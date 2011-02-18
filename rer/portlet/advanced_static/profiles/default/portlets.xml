@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="rer.portlet.advanced_static.RERPortletAdvancedStatic"
+   title="RER portlet advanced static"
+   description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+   />
+
+</portlets>

@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="rer.portlet.advanced_static">
+
+	<!-- Register the vocabularies -->
+    <utility
+        component=".vocab.CSSVocabulary"
+        name="rer.portlet.advanced_static.CSSVocabulary"
+        />
+</configure>
