@@ -15,7 +15,7 @@ from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone.app.controlpanel.form import ControlPanelForm
 
 from rer.portlet.advanced_static import RERPortletAdvancedStaticMessageFactory as _
-from rer.portlet.advanced_static.utils import getVocabulary
+from rer.portlet.advanced_static.utility.utils import getVocabulary
 
 
 class IValueTitlePair(Interface):

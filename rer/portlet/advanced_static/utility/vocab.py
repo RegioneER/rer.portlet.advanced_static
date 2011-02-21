@@ -4,7 +4,7 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 from Products.CMFCore.utils import getToolByName
 
-from rer.portlet.advanced_static.utils import getVocabulary
+from rer.portlet.advanced_static.utility.utils import getVocabulary
 from rer.portlet.advanced_static import RERPortletAdvancedStaticMessageFactory as _
 
 class CSSVocabulary(object):
