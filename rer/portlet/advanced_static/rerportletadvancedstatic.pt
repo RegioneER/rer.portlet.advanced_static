@@ -9,7 +9,7 @@
 
     <dt class="portletHeader">
 		<div class="headerImg"
-		     tal:condition="view/hasImage"
+		     tal:condition="view/data/image"
              tal:attributes="style view/getImageStyle">
         </div>
         <span class="portletTopLeft"></span>

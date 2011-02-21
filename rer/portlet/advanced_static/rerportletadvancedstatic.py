@@ -97,17 +97,6 @@ class Renderer(static.Renderer):
             classes +=" %s" %self.data.css_style
         return classes
     
-        self.context.restrictedTraverse('/erportale/++contextportlets++plone.rightcolumn/prova-statica/@@image')
-    
-    @memoize
-    def hasImage(self):
-        image_view=self.context.unrestrictedTraverse("%s/%s/@@image" %(self.data.assignment_context_path,self.data.__name__))
-        try:
-            image_view()
-            return True
-        except AttributeError:
-            return False
-        
     def getImgUrl(self):
         state=getMultiAdapter((self.context, self.request),name="plone_portal_state")
         portal=state.portal()
