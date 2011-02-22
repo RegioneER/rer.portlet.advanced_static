@@ -20,6 +20,7 @@ class CSSVocabulary(object):
             if not isinstance(value, unicode):
                 value = value.decode(charset)
             items.append(SimpleTerm(value, value, _(title)))
+        items.sort(lambda x,y:cmp(x.title,y.title))
         return SimpleVocabulary(items)
 
     def _charset(self, context):
