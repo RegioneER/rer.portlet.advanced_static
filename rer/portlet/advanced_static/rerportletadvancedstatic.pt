@@ -1,6 +1,8 @@
 <div tal:condition="view/data/omit_border"
-     tal:attributes="class view/getPortletClass"
-     tal:content="structure view/data/text" />
+     tal:attributes="class view/getPortletClass">
+     <div class="portletItem" tal:content="structure view/data/text" />	
+</div>
+     
 	 
 <dl tal:condition="not:view/data/omit_border"
     tal:attributes="class view/getPortletClass"
@@ -13,11 +15,12 @@
              tal:attributes="style view/getImageStyle">
         </div>
         <span class="portletTopLeft"></span>
-        <a tal:condition="portlet_link"
+        <a class="tile" tal:condition="portlet_link"
 		   tal:attributes="href portlet_link">
         	<span tal:content="view/data/header"></span>
         </a>
-		<span tal:condition="not:portlet_link"
+		<span class="tile"
+		      tal:condition="not:portlet_link"
 		      tal:content="view/data/header"></span>
         <span class="portletTopRight"></span>
     </dt>
