@@ -30,7 +30,7 @@ class ValueTitlePair(object):
 
 class IRERAdvancedStaticPortletControlPanelSchema(Interface):
 
-    portlet_dropdown = schema.List(
+    portlet_styles_menu = schema.List(
         title=_(u'Dropdown select'),
         description=_(u"These entries are used for generating dropdown select "
                       "for advanced static portlet. Note: pipe (|) "
@@ -48,10 +48,10 @@ class RERAdvancedStaticPortletControlPanelAdapter(SchemaAdapterBase):
         self.context = context
         self.pp = getToolByName(context, 'portal_properties', None)
 
-    def get_portlet_dropdown(self):
+    def get_portlet_styles_menu(self):
         return  [ValueTitlePair(v,t) for (v,t) in getVocabulary(self.context)]
 
-    def set_portlet_dropdown(self, value):
+    def set_portlet_styles_menu(self, value):
         dropdown_list = []
         for vt in value:
             value = vt.value
@@ -59,7 +59,7 @@ class RERAdvancedStaticPortletControlPanelAdapter(SchemaAdapterBase):
             dropdown_list.append('%s|%s' % (value, title))
         self.setValue(dropdown_list)
 
-    portlet_dropdown = property(get_portlet_dropdown, set_portlet_dropdown)
+    portlet_styles_menu = property(get_portlet_styles_menu, set_portlet_styles_menu)
 
     def setValue(self, value):
         if self.pp is not None:
@@ -69,10 +69,10 @@ class RERAdvancedStaticPortletControlPanelAdapter(SchemaAdapterBase):
                     'RER Advanced static portlet properties'
                 )
             sheet = getattr(self.pp, 'rer_staticportlet_properties', None)
-            if not sheet.hasProperty('portlet_dropdown'):
-                sheet.manage_addProperty('portlet_dropdown', value, 'lines')
+            if not sheet.hasProperty('portlet_styles_menu'):
+                sheet.manage_addProperty('portlet_styles_menu', value, 'lines')
             else:
-                sheet.manage_changeProperties(portlet_dropdown=value)
+                sheet.manage_changeProperties(portlet_styles_menu=value)
 
 valuetitle_widget = CustomWidgetFactory(ObjectWidget, ValueTitlePair)
 combination_widget = CustomWidgetFactory(ListSequenceWidget,
@@ -81,7 +81,7 @@ combination_widget = CustomWidgetFactory(ListSequenceWidget,
 class RERAdvancedStaticPortletControlPanel(ControlPanelForm):
 
     form_fields = form.FormFields(IRERAdvancedStaticPortletControlPanelSchema)
-    form_fields['portlet_dropdown'].custom_widget = combination_widget
+    form_fields['portlet_styles_menu'].custom_widget = combination_widget
 
     label = _("RER Advanced static portlet settings")
     description = _("This form is for managing RER Advanced static portlet "

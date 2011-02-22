@@ -14,5 +14,5 @@ def addPropertySheet(portal):
         portal_properties.addPropertySheet(id='rer_staticportlet_properties',title='RER Advanced static portlet properties')
         portal.plone_log("Added RER Advanced static portlet properties property-sheet")
         rer_staticportlet_properties = getattr(portal_properties, 'rer_staticportlet_properties',None)
-    if not rer_staticportlet_properties.hasProperty('portlet_dropdown'):
-        rer_staticportlet_properties.manage_addProperty('portlet_dropdown', "", 'lines')
+    if not rer_staticportlet_properties.hasProperty('portlet_styles_menu'):
+        rer_staticportlet_properties.manage_addProperty('portlet_styles_menu', "", 'lines')

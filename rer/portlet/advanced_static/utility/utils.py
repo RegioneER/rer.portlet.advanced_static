@@ -8,7 +8,7 @@ def getVocabulary(context):
     if pp is not None:
         sheet = getattr(pp, 'rer_staticportlet_properties', None)
         if sheet is not None:
-            dropdown_list = sheet.getProperty('portlet_dropdown', None)
+            dropdown_list = sheet.getProperty('portlet_styles_menu', None)
             if dropdown_list is not None:
                 styles = []
                 value_list = []

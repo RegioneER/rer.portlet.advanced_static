@@ -44,7 +44,6 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
     css_style = schema.Choice(title=_(u"Portlet style"),
                               description=_(u"Choose a css style for the porlet"),
                               required=False,
-                              default='',
                               vocabulary='rer.portlet.advanced_static.CSSVocabulary',)
 
 class Assignment(static.Assignment):
