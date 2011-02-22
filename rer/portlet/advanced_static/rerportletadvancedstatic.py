@@ -23,6 +23,11 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
     """
     A custom static text portlet
     """
+    text = schema.Text(
+        title=_(u"Text"),
+        description=_(u"The text to render"),
+        required=False)
+    
     image = schema.Field(title=_(u'Image'),
                          description=_(u"Add or replace image for the portlet"),
                          required=False)
@@ -131,7 +136,6 @@ class AddForm(static.AddForm):
     form_fields['text'].custom_widget = WYSIWYGWidget
     form_fields['image'].custom_widget = ImageWidget
     form_fields['internal_url'].custom_widget = UberSelectionWidget
-    
     def create(self, data):
         assignment_context_path = \
                     '/'.join(self.context.__parent__.getPhysicalPath())
