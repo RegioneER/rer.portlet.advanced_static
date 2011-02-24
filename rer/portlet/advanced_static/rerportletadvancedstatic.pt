@@ -25,7 +25,7 @@
         <span class="portletTopRight"></span>
     </dt>
 
-    <dd class="portletItem odd">
+    <dd class="portletItem" tal:condition="view/data/text">
         <div tal:replace="structure view/data/text" />
 		<tal:corners condition="not:view/has_footer">
             <span class="portletBottomLeft"></span>
