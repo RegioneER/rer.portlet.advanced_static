@@ -10,10 +10,10 @@
     i18n:domain="rer.portlet.advanced_static">
 
     <dt class="portletHeader">
-		<div class="headerImg"
+		<span class="headerImg"
 		     tal:condition="view/data/image"
              tal:attributes="style view/getImageStyle">
-        </div>
+        </span>
         <span class="portletTopLeft"></span>
         <a class="tile" tal:condition="portlet_link"
 		   tal:attributes="href portlet_link">
