@@ -26,7 +26,7 @@
          interface=".rerportletadvancedstatic.IRERPortletAdvancedStatic"
          assignment=".rerportletadvancedstatic.Assignment"
          view_permission="zope2.View"
-         edit_permission="cmf.ManagePortal"
+         edit_permission="plone.app.portlets.ManagePortlets"
          renderer=".rerportletadvancedstatic.Renderer"
          addview=".rerportletadvancedstatic.AddForm"
          editview=".rerportletadvancedstatic.EditForm"
