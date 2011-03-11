@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2009-12-13 09:46+0000\n"
+"PO-Revision-Date: 2009-10-15 10:44+0200\n"
+"Last-Translator: Lele Gaifax <lele@seldati.it>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: it-ch it-it\n"
+
+#. Default: "RER portlet advanced static"
+#: ./profiles/default/portlets.xml
+msgid "RER portlet advanced static"
+msgstr "Riquadro testo personalizzabile"
+
+#. Default: "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+#: ./profiles/default/portlets.xml
+msgid "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+msgstr "Una portlet che estende la portlet Statica di Plone, a aggiunge ulteriori funzionalità come stili css customizzabili nelle site_properties" 

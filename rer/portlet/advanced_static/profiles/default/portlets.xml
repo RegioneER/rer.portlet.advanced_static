@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<portlets>
+<portlets xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone">
 
  <!-- Portlet type registrations -->
 
@@ -7,6 +8,7 @@
    addview="rer.portlet.advanced_static.RERPortletAdvancedStatic"
    title="RER portlet advanced static"
    description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+   i18n:attributes="title;
+                    description"
    />
-
 </portlets>

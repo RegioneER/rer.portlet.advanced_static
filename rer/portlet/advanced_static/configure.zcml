@@ -15,7 +15,7 @@
 	
     <genericsetup:registerProfile
        name="default"
-       title="RER: portlet advanced static"
+       title="RER: Portlet advanced static"
        directory="profiles/default"
        description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
        provides="Products.GenericSetup.interfaces.EXTENSION"
