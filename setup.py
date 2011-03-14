@@ -29,8 +29,5 @@ setup(name='rer.portlet.advanced_static',
       ],
       entry_points="""
       # -*- Entry points: -*-
-
-      [z3c.autoinclude.plugin]
-      target = plone
       """,
       )
