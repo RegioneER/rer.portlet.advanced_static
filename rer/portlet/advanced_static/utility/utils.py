@@ -23,5 +23,5 @@ def getVocabulary(context):
                         title = values[1]
                     if value not in value_list:
                         value_list.append(value)
-                        styles.append((value, title))
+                        styles.append((value.decode('utf-8'), title.decode('utf-8')))
     return styles

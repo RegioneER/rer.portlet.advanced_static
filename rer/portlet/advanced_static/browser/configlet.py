@@ -56,7 +56,7 @@ class RERAdvancedStaticPortletControlPanelAdapter(SchemaAdapterBase):
         for vt in value:
             value = vt.value
             title = vt.title or value
-            dropdown_list.append('%s|%s' % (value, title))
+            dropdown_list.append('%s|%s' % (value.encode('utf-8'), title.encode('utf-8')))
         self.setValue(dropdown_list)
 
     portlet_styles_menu = property(get_portlet_styles_menu, set_portlet_styles_menu)
