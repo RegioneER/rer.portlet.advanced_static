@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.1 (2011/03/??)
+1.0.1 (2011/03/24)
 ------------------
 
 - fixed problem with accents [andrea]
