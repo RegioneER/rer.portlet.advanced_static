@@ -118,8 +118,7 @@ class Renderer(static.Renderer):
     def getPortletLink(self):
         if self.data.internal_url:
             root_path= self.context.portal_url.getPortalObject().getPhysicalPath()
-            item_path = self.data.internal_url.split('/')
-            item_url= '/'.join(root_path) + '/'.join(item_path[:-1])
+            item_url= '/'.join(root_path) + self.data.internal_url
             return item_url
         else:
             return self.data.more_url or ""

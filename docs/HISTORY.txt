@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.2 (2011/04/04)
+------------------
+
+- fixed bug in the path for internal links [andrea]
+
 1.0.1 (2011/03/24)
 ------------------
 
