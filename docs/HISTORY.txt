@@ -1,15 +1,20 @@
 Changelog
 =========
 
+1.1.0 (2011/06/24)
+------------------
+
+- now the images are references to an image in the portal [micecchi]
+
 1.0.2 (2011/04/04)
 ------------------
 
-- fixed bug in the path for internal links [andrea]
+- fixed bug in the path for internal links [micecchi]
 
 1.0.1 (2011/03/24)
 ------------------
 
-- fixed problem with accents [andrea]
+- fixed problem with accents [micecchi]
 
 1.0.0 (2011/03/14)
 ------------------

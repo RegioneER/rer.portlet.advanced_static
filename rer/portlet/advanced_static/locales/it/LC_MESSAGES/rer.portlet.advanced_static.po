@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-02-18 15:47+0000\n"
+"POT-Creation-Date: 2011-06-24 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,45 +14,53 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:27
-msgid "Add or replace image for the portlet"
-msgstr "Aggiungi o sostituisci l'immagine della portlet"
-
-#: ./rerportletadvancedstatic.py:40
+#: ./rerportletadvancedstatic.py:46
 msgid "Choose a css style for the porlet"
 msgstr "Seleziona uno stile css per la portlet"
 
-#: ./rerportletadvancedstatic.py:37
+#: ./rerportletadvancedstatic.py:43
 msgid "Css class to add at the portlet"
 msgstr "Classe css da aggiungere alla portlet"
 
 #: ./browser/configlet.py:34
 msgid "Dropdown select"
-msgstr ""
+msgstr "Voci del menu"
 
-#: ./rerportletadvancedstatic.py:26
+#: ./rerportletadvancedstatic.py:30
 msgid "Image"
 msgstr "Immagine"
 
 #: ./rerportletadvancedstatic.py:31
-msgid "Insert an internal link. This field override external link field"
-msgstr "Inserisci un link intetno. Questo campo ha priorità sul link esterno"
+msgid "Insert an image"
+msgstr "Inserisci un'immagine"
 
-#: ./rerportletadvancedstatic.py:30
+#: ./rerportletadvancedstatic.py:37
+msgid "Insert an internal link. This field override external link field"
+msgstr "Inserisci un link interno. Questo campo ha priorità sul link esterno"
+
+#: ./rerportletadvancedstatic.py:36
 msgid "Internal link"
 msgstr "Link interno"
 
-#: ./rerportletadvancedstatic.py:35
+#: ./rerportletadvancedstatic.py:41
 msgid "Portlet class"
 msgstr "Classe portlet"
 
-#: ./rerportletadvancedstatic.py:39
+#: ./rerportletadvancedstatic.py:45
 msgid "Portlet style"
 msgstr "Stile portlet"
 
 #: ./browser/configlet.py:86
 msgid "RER Advanced static portlet settings"
 msgstr "Settaggi RER Advanced static portlet"
+
+#: ./rerportletadvancedstatic.py:26
+msgid "Text"
+msgstr "Testo"
+
+#: ./rerportletadvancedstatic.py:27
+msgid "The text to render"
+msgstr "Il testo da visualizzare"
 
 #: ./browser/configlet.py:35
 msgid "These entries are used for generating dropdown select for advanced static portlet. Note: pipe (|) symbol is not allowed in the value field."
@@ -63,6 +71,7 @@ msgid "This form is for managing RER Advanced static portlet classes available o
 msgstr "Questa form serve per gestire le classi della RER Advanced static portlet."
 
 #. Default: "-- select a value --"
-#: ./rerportletadvancedstatic.py:18
+#: ./rerportletadvancedstatic.py:17
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr "-- seleziona un valore --"
+

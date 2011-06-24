@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-02-18 15:47+0000\n"
+"POT-Creation-Date: 2011-06-24 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:27
-msgid "Add or replace image for the portlet"
-msgstr ""
-
-#: ./rerportletadvancedstatic.py:40
+#: ./rerportletadvancedstatic.py:46
 msgid "Choose a css style for the porlet"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:37
+#: ./rerportletadvancedstatic.py:43
 msgid "Css class to add at the portlet"
 msgstr ""
 
@@ -33,28 +29,40 @@ msgstr ""
 msgid "Dropdown select"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:26
+#: ./rerportletadvancedstatic.py:30
 msgid "Image"
 msgstr ""
 
 #: ./rerportletadvancedstatic.py:31
+msgid "Insert an image"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:37
 msgid "Insert an internal link. This field override external link field"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:30
+#: ./rerportletadvancedstatic.py:36
 msgid "Internal link"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:35
+#: ./rerportletadvancedstatic.py:41
 msgid "Portlet class"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:39
+#: ./rerportletadvancedstatic.py:45
 msgid "Portlet style"
 msgstr ""
 
 #: ./browser/configlet.py:86
 msgid "RER Advanced static portlet settings"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:26
+msgid "Text"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:27
+msgid "The text to render"
 msgstr ""
 
 #: ./browser/configlet.py:35
@@ -66,7 +74,7 @@ msgid "This form is for managing RER Advanced static portlet classes available o
 msgstr ""
 
 #. Default: "-- select a value --"
-#: ./rerportletadvancedstatic.py:18
+#: ./rerportletadvancedstatic.py:17
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr ""
 

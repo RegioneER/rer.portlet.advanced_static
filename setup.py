@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.2'
+version = '1.1.0'
 
 setup(name='rer.portlet.advanced_static',
       version=version,
-      description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties",
+      description="A portlet that extends Plone static text portlet, and add more functionalities",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
@@ -14,8 +14,8 @@ setup(name='rer.portlet.advanced_static',
         "Framework :: Plone",
         "Programming Language :: Python",
         ],
-      keywords='',
-      author='Redturtle Technology',
+      keywords='portlet static',
+      author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.net',
       url='http://svn.plone.org/svn/collective/',
       license='GPL',

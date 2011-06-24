@@ -1,19 +1,18 @@
+from Products.ATContentTypes.interface import IATImage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.memoize.instance import memoize
 from plone.portlet.static import static
 from plone.portlets.interfaces import IPortletDataProvider
 from rer.portlet.advanced_static import \
     RERPortletAdvancedStaticMessageFactory as _
-from rer.portlet.advanced_static.widget import ImageWidget
 from zope import schema
+from zope.app.form.browser.itemswidgets import SelectWidget
 from zope.formlib import form
 from zope.interface import implements
-from zope.app.form.browser.itemswidgets import SelectWidget
-from zope.component import getMultiAdapter
-from plone.memoize.instance import memoize
 
 SelectWidget._messageNoValue = _("vocabulary-missing-single-value-for-edit",
                       "-- select a value --")
@@ -28,9 +27,11 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
         description=_(u"The text to render"),
         required=False)
     
-    image = schema.Field(title=_(u'Image'),
-                         description=_(u"Add or replace image for the portlet"),
-                         required=False)
+    image= schema.Choice(title=_(u"Background image"),
+                                description=_(u"Insert an image that will be shown as background of the header"),
+                                required=False,
+                                source=SearchableTextSourceBinder({'object_provides' : IATImage.__identifier__},
+                                                                    default_query='path:'))
     
     internal_url= schema.Choice(title=_(u"Internal link"),
                                 description=_(u"Insert an internal link. This field override external link field"),
@@ -55,7 +56,7 @@ class Assignment(static.Assignment):
 
     implements(IRERPortletAdvancedStatic)
 
-    image = None
+    image = ''
     assignment_context_path = None
     internal_url = ''
     portlet_class= ''
@@ -63,7 +64,7 @@ class Assignment(static.Assignment):
         
     def __init__(self, header=u"", text=u"", omit_border=False, footer=u"",
                  more_url='', hide=False,assignment_context_path = None,
-                 image = None, internal_url = '', portlet_class= '', css_style = ''):
+                 image = '', internal_url = '', portlet_class= '', css_style = ''):
         super(Assignment, self).__init__(header=header,
                                          text=text,
                                          omit_border=omit_border,
@@ -102,18 +103,25 @@ class Renderer(static.Renderer):
         return classes
     
     def getImgUrl(self):
-        state=getMultiAdapter((self.context, self.request),name="plone_portal_state")
-        portal=state.portal()
-        assignment_url = portal.unrestrictedTraverse(self.data.assignment_context_path).absolute_url()
-        return "%s/%s/@@image" %(assignment_url,self.data.__name__)
+        root='/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+        return "%s%s" %(root,self.data.image)
     
     def getImgHeight(self):
-        return str(self.data.image.height)
+        import sys;sys.stdout=file('/dev/stdout','w');import pdb;pdb.set_trace()
+        img_url=self.getImgUrl()
+        img_obj=self.context.restrictedTraverse(img_url)
+        if not img_obj:
+            return ""
+        return str(img_obj.getImage().height)
     
     @property
     @memoize
     def getImageStyle(self):
-        return "background-image:url(%s);height:%spx" %(self.getImgUrl(),self.getImgHeight())
+        style="background-image:url(%s)" %self.getImgUrl()
+        height=self.getImgHeight()
+        if height:
+            style += ";height:%spx" %self.getImgHeight()
+        return style
     
     def getPortletLink(self):
         if self.data.internal_url:
@@ -132,7 +140,7 @@ class AddForm(static.AddForm):
     """
     form_fields = form.Fields(IRERPortletAdvancedStatic)
     form_fields['text'].custom_widget = WYSIWYGWidget
-    form_fields['image'].custom_widget = ImageWidget
+    form_fields['image'].custom_widget = UberSelectionWidget
     form_fields['internal_url'].custom_widget = UberSelectionWidget
     def create(self, data):
         assignment_context_path = \
@@ -149,5 +157,5 @@ class EditForm(static.EditForm):
     """
     form_fields = form.Fields(IRERPortletAdvancedStatic)
     form_fields['text'].custom_widget = WYSIWYGWidget
-    form_fields['image'].custom_widget = ImageWidget
+    form_fields['image'].custom_widget = UberSelectionWidget
     form_fields['internal_url'].custom_widget = UberSelectionWidget
