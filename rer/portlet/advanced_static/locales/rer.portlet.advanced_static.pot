@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-06-24 14:21+0000\n"
+"POT-Creation-Date: 2011-06-30 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:46
-msgid "Choose a css style for the porlet"
+#: ./rerportletadvancedstatic.py:37
+msgid "Background image"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:43
-msgid "Css class to add at the portlet"
+#: ./rerportletadvancedstatic.py:50
+msgid "CSS class to add at the portlet"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:53
+msgid "Choose a CSS style for the portlet"
 msgstr ""
 
 #: ./browser/configlet.py:34
 msgid "Dropdown select"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:30
-msgid "Image"
+#: ./rerportletadvancedstatic.py:38
+msgid "Insert an image that will be shown as background of the header"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:31
-msgid "Insert an image"
-msgstr ""
-
-#: ./rerportletadvancedstatic.py:37
+#: ./rerportletadvancedstatic.py:44
 msgid "Insert an internal link. This field override external link field"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:36
+#: ./rerportletadvancedstatic.py:43
 msgid "Internal link"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:41
+#: ./rerportletadvancedstatic.py:48
 msgid "Portlet class"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:45
+#: ./rerportletadvancedstatic.py:52
 msgid "Portlet style"
 msgstr ""
 
@@ -57,11 +57,11 @@ msgstr ""
 msgid "RER Advanced static portlet settings"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:26
+#: ./rerportletadvancedstatic.py:33
 msgid "Text"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:27
+#: ./rerportletadvancedstatic.py:34
 msgid "The text to render"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgid "This form is for managing RER Advanced static portlet classes available o
 msgstr ""
 
 #. Default: "-- select a value --"
-#: ./rerportletadvancedstatic.py:17
+#: ./rerportletadvancedstatic.py:18
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr ""
 

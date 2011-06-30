@@ -4,7 +4,6 @@ from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from plone.memoize.instance import memoize
 from plone.portlet.static import static
 from plone.portlets.interfaces import IPortletDataProvider
 from rer.portlet.advanced_static import \
@@ -13,10 +12,18 @@ from zope import schema
 from zope.app.form.browser.itemswidgets import SelectWidget
 from zope.formlib import form
 from zope.interface import implements
+from plone.memoize import ram
+from time import time
 
 SelectWidget._messageNoValue = _("vocabulary-missing-single-value-for-edit",
                       "-- select a value --")
 
+def _advstatic_cachekey(method, self,img_path):
+    """
+    method for ramcache that store time and searched userid
+    """
+    timestamp = time() // (60 * 30 * 1)
+    return "%s:%s" % (timestamp,img_path)
 
 class IRERPortletAdvancedStatic(static.IStaticPortlet):
     """
@@ -40,10 +47,10 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
 
     portlet_class = schema.TextLine(title=_(u"Portlet class"),
                                     required=False,
-                                    description=_(u"Css class to add at the portlet"))
+                                    description=_(u"CSS class to add at the portlet"))
     
     css_style = schema.Choice(title=_(u"Portlet style"),
-                              description=_(u"Choose a css style for the porlet"),
+                              description=_(u"Choose a CSS style for the portlet"),
                               required=False,
                               vocabulary='rer.portlet.advanced_static.CSSVocabulary',)
 
@@ -103,24 +110,25 @@ class Renderer(static.Renderer):
         return classes
     
     def getImgUrl(self):
-        root='/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+        root=self.context.portal_url()
         return "%s%s" %(root,self.data.image)
     
-    def getImgHeight(self):
-        import sys;sys.stdout=file('/dev/stdout','w');import pdb;pdb.set_trace()
-        img_url=self.getImgUrl()
-        img_obj=self.context.restrictedTraverse(img_url)
+    @ram.cache(_advstatic_cachekey)
+    def getImgHeight(self,img_path):
+        self.context.plone_log('------------QUI----------------')
+        root='/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+        img_obj=self.context.restrictedTraverse("%s%s" %(root,img_path))
         if not img_obj:
             return ""
         return str(img_obj.getImage().height)
     
     @property
-    @memoize
     def getImageStyle(self):
-        style="background-image:url(%s)" %self.getImgUrl()
-        height=self.getImgHeight()
+        img_url=self.getImgUrl()
+        height=self.getImgHeight(self.data.image)
+        style="background-image:url(%s)" %img_url
         if height:
-            style += ";height:%spx" %self.getImgHeight()
+            style += ";height:%spx" %height
         return style
     
     def getPortletLink(self):
