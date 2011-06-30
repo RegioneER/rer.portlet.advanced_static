@@ -43,7 +43,7 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
     internal_url= schema.Choice(title=_(u"Internal link"),
                                 description=_(u"Insert an internal link. This field override external link field"),
                                 required=False,
-                                source=SearchableTextSourceBinder({}, default_query='path:'))
+                                source=SearchableTextSourceBinder({'sort_on':'getObjPositionInParent'}, default_query='path:'))
 
     portlet_class = schema.TextLine(title=_(u"Portlet class"),
                                     required=False,
