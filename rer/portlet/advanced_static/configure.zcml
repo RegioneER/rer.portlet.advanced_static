@@ -11,7 +11,8 @@
     <i18n:registerTranslations directory="locales" />
 	
 	<include package=".browser" />
-	<include package=".utility" />
+    <include package ="plone.app.portlets" />
+    <include package=".utility" />
 	
     <genericsetup:registerProfile
        name="default"
