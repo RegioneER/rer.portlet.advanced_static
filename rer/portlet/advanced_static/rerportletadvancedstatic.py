@@ -35,8 +35,8 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
     internal_url= schema.Choice(title=_(u"Internal link"),
                                 description=_(u"Insert an internal link. This field override external link field"),
                                 required=False,
-                                source=SearchableTextSourceBinder({}, default_query='path:'))
-
+                                source=SearchableTextSourceBinder({'sort_on':'getObjPositionInParent'},
+                                default_query='path:'))
     portlet_class = schema.TextLine(title=_(u"Portlet class"),
                                     required=False,
                                     description=_(u"Css class to add at the portlet"))
@@ -116,13 +116,19 @@ class Renderer(static.Renderer):
         return "background-image:url(%s);height:%spx" %(self.getImgUrl(),self.getImgHeight())
     
     def getPortletLink(self):
+        """
+        Return the right portlet link, if is set
+        """
         if self.data.internal_url:
-            root_path= self.context.portal_url.getPortalObject().getPhysicalPath()
-            item_url= '/'.join(root_path) + self.data.internal_url
-            return item_url
-        else:
-            return self.data.more_url or ""
-            
+            root= self.context.portal_url.getPortalObject()
+            item= root.restrictedTraverse(self.data.internal_url.strip('/'),None)
+            if item:
+                return item.absolute_url()
+            else:
+                return ''
+       else:
+           return self.data.more_url or ""
+
 class AddForm(static.AddForm):
     """Portlet add form.
 
