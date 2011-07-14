@@ -127,7 +127,7 @@ class Renderer(static.Renderer):
             else:
                 return ''
         else:
-           return self.data.more_url or ""
+            return self.data.more_url or ""
 
 class AddForm(static.AddForm):
     """Portlet add form.
