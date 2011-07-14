@@ -126,7 +126,7 @@ class Renderer(static.Renderer):
                 return item.absolute_url()
             else:
                 return ''
-       else:
+        else:
            return self.data.more_url or ""
 
 class AddForm(static.AddForm):
