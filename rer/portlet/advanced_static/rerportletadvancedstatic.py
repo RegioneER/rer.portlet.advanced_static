@@ -110,22 +110,40 @@ class Renderer(static.Renderer):
         return classes
     
     def getImgUrl(self):
-        root=self.context.portal_url()
-        return "%s%s" %(root,self.data.image)
+        """
+        return the image url
+        """
+        image=self.getImageObject(self.data.image)
+        if image:
+            return image.absolute_url()
+        else:
+            return ""
     
     @ram.cache(_advstatic_cachekey)
-    def getImgHeight(self,img_path):
-        self.context.plone_log('------------QUI----------------')
-        root='/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
-        img_obj=self.context.restrictedTraverse("%s%s" %(root,img_path))
-        if not img_obj:
+    def getImageObject(self,img_path):
+        """
+        get the image object
+        """
+        root= self.context.portal_url.getPortalObject()
+        return root.restrictedTraverse(img_path.strip('/'),None)
+    
+    
+    def getImgHeight(self):
+        """
+        return the image height
+        """
+        image=self.getImageObject(self.data.image)
+        if not image:
             return ""
-        return str(img_obj.getImage().height)
+        return str(image.getImage().height)
     
     @property
     def getImageStyle(self):
+        """
+        set background image, if present
+        """
         img_url=self.getImgUrl()
-        height=self.getImgHeight(self.data.image)
+        height=self.getImgHeight()
         style="background-image:url(%s)" %img_url
         if height:
             style += ";height:%spx" %height
@@ -133,8 +151,8 @@ class Renderer(static.Renderer):
     
     def getPortletLink(self):
         if self.data.internal_url:
-            root_path= self.context.portal_url.getPortalObject().getPhysicalPath()
-            item_url= '/'.join(root_path) + self.data.internal_url
+            root= self.context.portal_url.getPortalObject()
+            item= root.restrictedTraverse(self.data.internal_url.strip('/'),None)
             return item_url
         else:
             return self.data.more_url or ""
