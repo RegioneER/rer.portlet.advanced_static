@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.3 (2011/07/22)
+------------------
+- fixed text formatting and dependency with plone.portlet.static=1.2.1 [micecchi]
+
 1.1.2 (2011/07/18)
 ------------------
 - fixed url generating [micecchi]
