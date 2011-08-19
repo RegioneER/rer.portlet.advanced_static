@@ -12,6 +12,13 @@
       class=".configlet.RERAdvancedStaticPortletControlPanel"
       permission="cmf.ManagePortal"
       />
-  
+    <!-- Register the view for image widget -->
+    <browser:page
+         for="rer.portlet.advanced_static.rerportletadvancedstatic.Assignment"
+         name="image"
+         class=".imageview.ImageView"
+         permission="zope.Public"
+      />
+
 </configure>
 

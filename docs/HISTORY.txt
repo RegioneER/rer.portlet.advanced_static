@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.4 (2011/08/04)
+------------------
+- fixed compatibility between old version (1.0.4) and new header image management [micecchi]
+
 1.1.3 (2011/07/22)
 ------------------
 - fixed text formatting and dependency with plone.portlet.static=1.2.1 [micecchi]

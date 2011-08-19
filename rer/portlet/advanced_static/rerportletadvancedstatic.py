@@ -14,6 +14,7 @@ from zope.formlib import form
 from zope.interface import implements
 from plone.memoize import ram
 from time import time
+from zope.component import getMultiAdapter
 
 SelectWidget._messageNoValue = _("vocabulary-missing-single-value-for-edit",
                       "-- select a value --")
@@ -34,7 +35,7 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
         description=_(u"The text to render"),
         required=False)
     
-    image= schema.Choice(title=_(u"Background image"),
+    image_ref= schema.Choice(title=_(u"Background image"),
                                 description=_(u"Insert an image that will be shown as background of the header"),
                                 required=False,
                                 source=SearchableTextSourceBinder({'object_provides' : IATImage.__identifier__},
@@ -63,7 +64,7 @@ class Assignment(static.Assignment):
 
     implements(IRERPortletAdvancedStatic)
 
-    image = ''
+    image_ref = ''
     assignment_context_path = None
     internal_url = ''
     portlet_class= ''
@@ -71,14 +72,14 @@ class Assignment(static.Assignment):
         
     def __init__(self, header=u"", text=u"", omit_border=False, footer=u"",
                  more_url='', hide=False,assignment_context_path = None,
-                 image = '', internal_url = '', portlet_class= '', css_style = ''):
+                 image_ref = '', internal_url = '', portlet_class= '', css_style = ''):
         super(Assignment, self).__init__(header=header,
                                          text=text,
                                          omit_border=omit_border,
                                          footer=footer,
                                          more_url=more_url)
         
-        self.image = image
+        self.image_ref = image_ref
         self.assignment_context_path = assignment_context_path
         self.internal_url = internal_url
         self.portlet_class= portlet_class
@@ -113,7 +114,7 @@ class Renderer(static.Renderer):
         """
         return the image url
         """
-        image=self.getImageObject(self.data.image)
+        image=self.getImageObject(self.data.image_ref)
         if image:
             return image.absolute_url()
         else:
@@ -132,7 +133,7 @@ class Renderer(static.Renderer):
         """
         return the image height
         """
-        image=self.getImageObject(self.data.image)
+        image=self.getImageObject(self.data.image_ref)
         if not image:
             return ""
         return str(image.getImage().height)
@@ -142,12 +143,49 @@ class Renderer(static.Renderer):
         """
         set background image, if present
         """
-        img_url=self.getImgUrl()
-        height=self.getImgHeight()
+        #get a string that define if there is an old-version image,
+        #and manage the background with the two cases 
+        portlet_image=self.getRightImageVersion()
+        if not portlet_image:
+            return ''
+        elif portlet_image == 'new':
+            img_url=self.getImgUrl()
+            height=self.getImgHeight()
+        elif portlet_image == 'old':
+            img_url=self.getOldImgUrl()
+            height=self.getOldImgHeight()
+            
         style="background-image:url(%s)" %img_url
         if height:
             style += ";height:%spx" %height
         return style
+    
+    def getRightImageVersion(self):
+        """
+        if the image_ref is set, return 'new'.
+        If the image_ref is not set, check if there is an old-type image and return 'old'
+        """
+        if self.data.image_ref:
+            return 'new'
+        image_old=getattr(self.data,'image',None)
+        if image_old:
+            return 'old'
+        return ''
+    
+    def getOldImgUrl(self):
+        """
+        old method that returns image url
+        """
+        state=getMultiAdapter((self.context, self.request),name="plone_portal_state")
+        portal=state.portal()
+        assignment_url = portal.unrestrictedTraverse(self.data.assignment_context_path).absolute_url()
+        return "%s/%s/@@image" %(assignment_url,self.data.__name__)
+    
+    def getOldImgHeight(self):
+        """
+        old method that returns image height
+        """
+        return str(self.data.image.height)
     
     def getPortletLink(self):
         if self.data.internal_url:
@@ -166,8 +204,9 @@ class AddForm(static.AddForm):
     """
     form_fields = form.Fields(IRERPortletAdvancedStatic)
     form_fields['text'].custom_widget = WYSIWYGWidget
-    form_fields['image'].custom_widget = UberSelectionWidget
+    form_fields['image_ref'].custom_widget = UberSelectionWidget
     form_fields['internal_url'].custom_widget = UberSelectionWidget
+    
     def create(self, data):
         assignment_context_path = \
                     '/'.join(self.context.__parent__.getPhysicalPath())
@@ -183,5 +222,17 @@ class EditForm(static.EditForm):
     """
     form_fields = form.Fields(IRERPortletAdvancedStatic)
     form_fields['text'].custom_widget = WYSIWYGWidget
-    form_fields['image'].custom_widget = UberSelectionWidget
+    form_fields['image_ref'].custom_widget = UberSelectionWidget
     form_fields['internal_url'].custom_widget = UberSelectionWidget
+    
+    @form.action(_(u"label_save", default=u"Save"),
+                 condition=form.haveInputWidgets,
+                 name=u'save')
+    def handle_save_action(self, action, data):
+        """
+        override of action, to remove old image reference, when a new image is selected
+        """
+        if data.get('image_ref','') and getattr(self.context.data,'image',None):
+            self.context.data.image=None
+        return super(EditForm,self).actions.byname['form.actions.save'].success_handler(self.context,action,data)
+        

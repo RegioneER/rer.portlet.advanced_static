@@ -11,8 +11,9 @@
 
     <dt class="portletHeader">
 		<span class="headerImg"
-		     tal:condition="view/data/image"
-             tal:attributes="style view/getImageStyle">
+		     tal:define="img_style view/getImageStyle"
+		     tal:condition="img_style"
+             tal:attributes="style img_style">
         </span>
         <span class="portletTopLeft"></span>
         <a class="tile" tal:condition="portlet_link"
