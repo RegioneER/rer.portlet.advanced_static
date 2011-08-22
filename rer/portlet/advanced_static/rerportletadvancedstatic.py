@@ -191,7 +191,10 @@ class Renderer(static.Renderer):
         if self.data.internal_url:
             root= self.context.portal_url.getPortalObject()
             item= root.restrictedTraverse(self.data.internal_url.strip('/'),None)
-            return item_url
+            if item:
+                return item.absolute_url()
+            else:
+                return ''
         else:
             return self.data.more_url or ""
             
