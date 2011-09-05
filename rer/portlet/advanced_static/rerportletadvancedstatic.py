@@ -119,7 +119,7 @@ class Renderer(static.Renderer):
             return image.absolute_url()
         else:
             return ""
-    
+
     @ram.cache(_advstatic_cachekey)
     def getImageObject(self,img_path):
         """
@@ -138,7 +138,7 @@ class Renderer(static.Renderer):
             return ""
         return str(image.getImage().height)
     
-    @property
+    # @property
     def getImageStyle(self):
         """
         set background image, if present
@@ -171,21 +171,29 @@ class Renderer(static.Renderer):
         if image_old:
             return 'old'
         return ''
-    
+
     def getOldImgUrl(self):
         """
         old method that returns image url
         """
-        state=getMultiAdapter((self.context, self.request),name="plone_portal_state")
-        portal=state.portal()
-        assignment_url = portal.unrestrictedTraverse(self.data.assignment_context_path).absolute_url()
-        return "%s/%s/@@image" %(assignment_url,self.data.__name__)
+        # BBB
+        if isinstance(self.data.image, basestring):
+            return "%s/image" % self.getImageObject(self.data.image).absolute_url()
+        else:
+            state=getMultiAdapter((self.context, self.request),name="plone_portal_state")
+            portal=state.portal()
+            assignment_url = portal.unrestrictedTraverse(self.data.assignment_context_path).absolute_url()
+            return "%s/%s/@@image" %(assignment_url,self.data.__name__)
     
     def getOldImgHeight(self):
         """
         old method that returns image height
         """
-        return str(self.data.image.height)
+        # BBB
+        if isinstance(self.data.image, basestring):
+            return str(self.getImageObject(self.data.image).height)
+        else:
+            return str(self.data.image.height)
     
     def getPortletLink(self):
         if self.data.internal_url:

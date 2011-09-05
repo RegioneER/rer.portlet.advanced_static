@@ -1,9 +1,9 @@
 Changelog
 =========
 
-1.1.5 (Unreleased)
+1.1.5 (2011/09/05)
 ------------------
-
+- new/old image workaround [mauro]
 - omit-border version of the portlet wasn't using the portal transformed HTML [keul]
 
 1.1.4 (2011/08/04)
