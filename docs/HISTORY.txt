@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.5 (Unreleased)
+------------------
+
+- omit-border version of the portlet wasn't using the portal transformed HTML [keul]
+
 1.1.4 (2011/08/04)
 ------------------
 - fixed compatibility between old version (1.0.4) and new header image management [micecchi]
