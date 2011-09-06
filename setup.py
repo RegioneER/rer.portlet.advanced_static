@@ -25,7 +25,7 @@ setup(name='rer.portlet.advanced_static',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.portlet.static==1.2.1'
+          'plone.portlet.static>=1.2.1'
       ],
       entry_points="""
       # -*- Entry points: -*-
