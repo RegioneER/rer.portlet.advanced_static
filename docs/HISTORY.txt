@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.6 (Unreleased)
+1.2.0 (Unreleased)
 ------------------
 
 - fixed vocabulary import to be Plone 4.1 compatible [keul]
