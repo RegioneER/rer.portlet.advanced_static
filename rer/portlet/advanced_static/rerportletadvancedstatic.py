@@ -12,7 +12,6 @@ from zope import schema
 from zope.app.form.browser.itemswidgets import SelectWidget
 from zope.formlib import form
 from zope.interface import implements
-from plone.memoize import ram
 from time import time
 from zope.component import getMultiAdapter
 
