@@ -19,13 +19,6 @@ from zope.component import getMultiAdapter
 SelectWidget._messageNoValue = _("vocabulary-missing-single-value-for-edit",
                       "-- select a value --")
 
-def _advstatic_cachekey(method, self,img_path):
-    """
-    method for ramcache that store time and searched userid
-    """
-    timestamp = time() // (60 * 30 * 1)
-    return "%s:%s" % (timestamp,img_path)
-
 class IRERPortletAdvancedStatic(static.IStaticPortlet):
     """
     A custom static text portlet
@@ -120,7 +113,6 @@ class Renderer(static.Renderer):
         else:
             return ""
 
-    @ram.cache(_advstatic_cachekey)
     def getImageObject(self,img_path):
         """
         get the image object
