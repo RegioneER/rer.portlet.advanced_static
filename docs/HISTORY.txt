@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.2.1 (2011/10/13)
+------------------
+
+- fixed include permission to be Plone 4.1 compatible [mirco.angelini]
+
 1.2.0 (2011/10/10)
 ------------------
 
