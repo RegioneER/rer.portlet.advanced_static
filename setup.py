@@ -25,9 +25,12 @@ setup(name='rer.portlet.advanced_static',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Products.CMFPlone',
           'plone.portlet.static>=1.2.1'
       ],
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
