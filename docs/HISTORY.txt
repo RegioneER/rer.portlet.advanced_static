@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.2.2 (2011/10/18)
+------------------
+
+- fixed Plone 4.1 compatibility in EditForm action [micecchi]
+
 1.2.1 (2011/10/13)
 ------------------
 

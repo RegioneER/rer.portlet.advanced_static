@@ -236,5 +236,5 @@ class EditForm(static.EditForm):
         """
         if data.get('image_ref','') and getattr(self.context.data,'image',None):
             self.context.data.image=None
-        return super(EditForm,self).actions.byname['form.actions.save'].success_handler(self.context,action,data)
+        return super(EditForm,self).actions.byname['form.actions.save'].success_handler(self,action,data)
         
