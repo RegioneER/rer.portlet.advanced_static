@@ -67,6 +67,7 @@ class Assignment(static.Assignment):
                  image_ref = '', internal_url = '', portlet_class= '', css_style = ''):
         super(Assignment, self).__init__(header=header,
                                          text=text,
+                                         hide=hide,
                                          omit_border=omit_border,
                                          footer=footer,
                                          more_url=more_url)
