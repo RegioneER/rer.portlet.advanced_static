@@ -4,7 +4,7 @@ Changelog
 1.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- fixed Plone4 compatibility with hide field [micecchi]
 
 
 1.2.3 (2012-04-10)
