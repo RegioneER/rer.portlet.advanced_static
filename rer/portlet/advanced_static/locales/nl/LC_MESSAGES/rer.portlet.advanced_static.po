@@ -1,0 +1,78 @@
+# Maurits van Rees <m.van.rees@zestsoftware.nl>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: rer.portlet.advanced_static 1.2.4\n"
+"POT-Creation-Date: 2011-06-30 12:21+0000\n"
+"PO-Revision-Date: 2012-07-19 18:20 +0200\n"
+"Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
+"Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: rer.portlet.advanced_static\n"
+
+#: ./rerportletadvancedstatic.py:37
+msgid "Background image"
+msgstr "Achtergrondplaatje"
+
+#: ./rerportletadvancedstatic.py:50
+msgid "CSS class to add at the portlet"
+msgstr "CSS class om toe te voegen aan de portlet"
+
+#: ./rerportletadvancedstatic.py:53
+msgid "Choose a CSS style for the portlet"
+msgstr "Kies een CSS stijl voor de portlet"
+
+#: ./browser/configlet.py:34
+msgid "Dropdown select"
+msgstr "Dropdown selectie"
+
+#: ./rerportletadvancedstatic.py:38
+msgid "Insert an image that will be shown as background of the header"
+msgstr "Voeg een afbeelding toe die getoond zal worden als achtergrond van de header."
+
+#: ./rerportletadvancedstatic.py:44
+msgid "Insert an internal link. This field override external link field"
+msgstr "Voeg een interne link toe. Dit veld overschrijft het veld Details link."
+
+#: ./rerportletadvancedstatic.py:43
+msgid "Internal link"
+msgstr "Interne link"
+
+#: ./rerportletadvancedstatic.py:48
+msgid "Portlet class"
+msgstr "Portlet class"
+
+#: ./rerportletadvancedstatic.py:52
+msgid "Portlet style"
+msgstr "Portlet stijl"
+
+#: ./browser/configlet.py:86
+msgid "RER Advanced static portlet settings"
+msgstr "Instellingen voor uitgebreide statische portlet"
+
+#: ./rerportletadvancedstatic.py:33
+msgid "Text"
+msgstr "Tekst"
+
+#: ./rerportletadvancedstatic.py:34
+msgid "The text to render"
+msgstr "De tekst om te tonen"
+
+#: ./browser/configlet.py:35
+msgid "These entries are used for generating dropdown select for advanced static portlet. Note: pipe (|) symbol is not allowed in the value field."
+msgstr "Deze waarden worden gebruikt voor het genereren van een dropdown selectie voor de uitgebreide statische portlet. Opmerking: een pijp (|) symbool is niet toegestaan in het veld van de waarde."
+
+#: ./browser/configlet.py:87
+msgid "This form is for managing RER Advanced static portlet classes available on portlet add/edit form."
+msgstr "Dit formulier is voor het beheren van de uitgebreide statische portlet classes die beschikbaar zijn in het toevoeg en bewerk formulier van de portlet."
+
+#. Default: "-- select a value --"
+#: ./rerportletadvancedstatic.py:18
+msgid "vocabulary-missing-single-value-for-edit"
+msgstr "-- selecteer een waarde --"
+

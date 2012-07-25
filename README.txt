@@ -1,6 +1,6 @@
 Introduction
 ============
-A portlet that extends the base Static portlet of Plone and add some new fields and features:
+A portlet that extends the base Static Portlet of Plone and add some new fields and features:
 
 * possibility to set a background-image for the header of the portlet
 * internal link field

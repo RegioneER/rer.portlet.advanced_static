@@ -1,0 +1,31 @@
+# plone domain translations for rer.portlet.advanced_static.  Maybe more.
+# Maurits van Rees <m.van.rees@zestsoftware.nl>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2009-12-13 09:46+0000\n"
+"PO-Revision-Date: 2012-07-19 18:20 +0200\n"
+"Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
+"Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: nl-be nl-nl\n"
+
+#. Default: "RER portlet advanced static"
+#: ./profiles/default/portlets.xml
+msgid "RER portlet advanced static"
+msgstr "Uitgebreide statische tekstportlet"
+
+msgid "RER Advanced Static Portlet"
+msgstr "Uitgebreide statische tekstportlet"
+
+#. Default: "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+#: ./profiles/default/portlets.xml
+msgid "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+msgstr "Een portlet die de standaard statische tekstportlet van Plone uitbreid met onder andere de mogelijkheid om een css stijl te kiezen."
