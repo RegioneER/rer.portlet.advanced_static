@@ -32,10 +32,18 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
                                 source=SearchableTextSourceBinder({'object_provides': IATImage.__identifier__},
                                                                     default_query='path:'))
 
+    image_ref_height = schema.Int(title=_(u"Background image height"),
+                                description=_(u"Specify image background's height (in pixels). If empty will be used image's height."),
+                                required=False)
+
     internal_url = schema.Choice(title=_(u"Internal link"),
                                 description=_(u"Insert an internal link. This field override external link field"),
                                 required=False,
                                 source=SearchableTextSourceBinder({'sort_on': 'getObjPositionInParent'}, default_query='path:'))
+
+    portlet_class = schema.TextLine(title=_(u"Portlet class"),
+                                    required=False,
+                                    description=_(u"CSS class to add at the portlet"))
 
     portlet_class = schema.TextLine(title=_(u"Portlet class"),
                                     required=False,
@@ -57,6 +65,7 @@ class Assignment(static.Assignment):
     implements(IRERPortletAdvancedStatic)
 
     image_ref = ''
+    image_ref_height = None
     assignment_context_path = None
     internal_url = ''
     portlet_class = ''
@@ -64,13 +73,14 @@ class Assignment(static.Assignment):
 
     def __init__(self, header=u"", text=u"", omit_border=False, footer=u"",
                  more_url='', hide=False, assignment_context_path=None,
-                 image_ref='', internal_url='', portlet_class='', css_style=''):
+                 image_ref='', image_ref_height=None, internal_url='', portlet_class='', css_style=''):
         self.header = header
         self.text = text
         self.omit_border = omit_border
         self.footer = footer
         self.more_url = more_url
         self.image_ref = image_ref
+        self.image_ref_height = image_ref_height
         self.assignment_context_path = assignment_context_path
         self.internal_url = internal_url
         self.portlet_class = portlet_class
@@ -140,10 +150,16 @@ class Renderer(static.Renderer):
             return ''
         elif portlet_image == 'new':
             img_url = self.getImgUrl()
-            height = self.getImgHeight()
+            if self.data.image_ref_height:
+                height = self.data.image_ref_height
+            else:
+                height = self.getImgHeight()
         elif portlet_image == 'old':
             img_url = self.getOldImgUrl()
-            height = self.getOldImgHeight()
+            if self.data.image_ref_height:
+                height = self.data.image_ref_height
+            else:
+                height = self.getOldImgHeight()
 
         style = "background-image:url(%s)" % img_url
         if height:
@@ -157,7 +173,7 @@ class Renderer(static.Renderer):
         """
         if self.data.image_ref:
             return 'new'
-        image_old = getattr(self.data, 'image', None)
+        image_old = getattr(self.data.aq_base, 'image', None)
         if image_old:
             return 'old'
         return ''

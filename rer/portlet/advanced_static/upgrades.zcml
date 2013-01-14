@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="rer.portlet.advanced_static">
+       
+  <!-- Upgrade steps -->
+  <gs:upgradeStep
+        title="Upgrade rer.portlet.advanced_static 1.3.0"
+        description="rer.portlet.advanced_static upgrade step"
+        source="1.2.1"
+        destination="1300"
+        handler=".upgrades.to_1_3_0"
+        profile="rer.portlet.advanced_static:default" />
+       
+</configure>

@@ -20,5 +20,11 @@
          permission="zope.Public"
       />
 
+  <!-- Resource for stylesheet -->
+  <browser:resource
+      name="advanced_static.css"
+      file="advanced_static.css"
+      />
+
 </configure>
 

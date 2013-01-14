@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rer.portlet.advanced_static 1.2.4\n"
-"POT-Creation-Date: 2011-06-30 12:21+0000\n"
+"POT-Creation-Date: 2013-01-14 08:17+0000\n"
 "PO-Revision-Date: 2012-07-19 18:20 +0200\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -15,11 +15,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:37
+#: ./rerportletadvancedstatic.py:29
 msgid "Background image"
 msgstr "Achtergrondplaatje"
 
-#: ./rerportletadvancedstatic.py:50
+#: ./rerportletadvancedstatic.py:35
+msgid "Background image height"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:46
 msgid "CSS class to add at the portlet"
 msgstr "CSS class om toe te voegen aan de portlet"
 
@@ -31,19 +35,19 @@ msgstr "Kies een CSS stijl voor de portlet"
 msgid "Dropdown select"
 msgstr "Dropdown selectie"
 
-#: ./rerportletadvancedstatic.py:38
+#: ./rerportletadvancedstatic.py:30
 msgid "Insert an image that will be shown as background of the header"
 msgstr "Voeg een afbeelding toe die getoond zal worden als achtergrond van de header."
 
-#: ./rerportletadvancedstatic.py:44
+#: ./rerportletadvancedstatic.py:40
 msgid "Insert an internal link. This field override external link field"
 msgstr "Voeg een interne link toe. Dit veld overschrijft het veld Details link."
 
-#: ./rerportletadvancedstatic.py:43
+#: ./rerportletadvancedstatic.py:39
 msgid "Internal link"
 msgstr "Interne link"
 
-#: ./rerportletadvancedstatic.py:48
+#: ./rerportletadvancedstatic.py:44
 msgid "Portlet class"
 msgstr "Portlet class"
 
@@ -51,15 +55,23 @@ msgstr "Portlet class"
 msgid "Portlet style"
 msgstr "Portlet stijl"
 
+#: ./profiles/default/controlpanel.xml
+msgid "RER Advanced Static Portlet"
+msgstr ""
+
 #: ./browser/configlet.py:86
 msgid "RER Advanced static portlet settings"
 msgstr "Instellingen voor uitgebreide statische portlet"
 
-#: ./rerportletadvancedstatic.py:33
+#: ./rerportletadvancedstatic.py:36
+msgid "Specify image background's height (in pixels). If empty will be used image's height."
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:25
 msgid "Text"
 msgstr "Tekst"
 
-#: ./rerportletadvancedstatic.py:34
+#: ./rerportletadvancedstatic.py:26
 msgid "The text to render"
 msgstr "De tekst om te tonen"
 
@@ -71,8 +83,13 @@ msgstr "Deze waarden worden gebruikt voor het genereren van een dropdown selecti
 msgid "This form is for managing RER Advanced static portlet classes available on portlet add/edit form."
 msgstr "Dit formulier is voor het beheren van de uitgebreide statische portlet classes die beschikbaar zijn in het toevoeg en bewerk formulier van de portlet."
 
+#. Default: "Save"
+#: ./rerportletadvancedstatic.py:246
+msgid "label_save"
+msgstr ""
+
 #. Default: "-- select a value --"
-#: ./rerportletadvancedstatic.py:18
+#: ./rerportletadvancedstatic.py:16
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr "-- selecteer een waarde --"
 
