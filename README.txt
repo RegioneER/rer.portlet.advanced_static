@@ -1,14 +1,25 @@
 Introduction
 ============
-A portlet that extends the base Static Portlet of Plone and add some new fields and features:
+A portlet that extends the base Static Portlet of Plone and add some new fields and features.
 
-* possibility to set a background-image for the header of the portlet
-* internal link field
-* custom css class field
-* customizable list of preset style classes
+Set a background image
+----------------------
+
+In portlet's configuration there are two fields that allows to add an image background in portlet header. The image will be set as a "background-image" style in the header of the portlet.
+
+You can also set the height or leave the default one.
+
+Internal link field
+-------------------
+
+There is a new field that allows to set an internal link to show in "more" link. If this field is set, it overrides base external link of static portlet.
+
+Custom CSS class field
+-----------------------
+You can assign some custom css classes to the portlet.
 
 Preset Style Classes
-====================
+--------------------
 In the portlet configuration there is a field that allows to choose a style class from a preset list.
 You can edit the list of styles in "@@advancedstaticportlet-controlpanel" configlet in the controlpanel.
 
