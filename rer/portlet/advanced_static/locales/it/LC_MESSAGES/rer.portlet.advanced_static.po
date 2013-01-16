@@ -85,7 +85,7 @@ msgstr "Questa form serve per gestire le classi della RER Advanced static portle
 #. Default: "Save"
 #: ./rerportletadvancedstatic.py:246
 msgid "label_save"
-msgstr "Salve"
+msgstr "Salva"
 
 #. Default: "-- select a value --"
 #: ./rerportletadvancedstatic.py:16

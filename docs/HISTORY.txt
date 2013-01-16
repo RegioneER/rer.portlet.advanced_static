@@ -4,7 +4,7 @@ Changelog
 1.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix italian translation [mirco.angelini]
 
 
 1.3.0 (2013-01-14)
@@ -29,7 +29,7 @@ Changelog
 1.2.3 (2012-04-10)
 ------------------
 
-- fixed default value for hide portlet field [micecchi] 
+- fixed default value for hide portlet field [micecchi]
 
 1.2.2 (2011-10-18)
 ------------------
