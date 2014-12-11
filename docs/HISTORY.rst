@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.3 (unreleased)
+1.3.3 (2014-12-11)
 ------------------
 
 - Do not show portlet without border, if there isn't any text [cekk]
