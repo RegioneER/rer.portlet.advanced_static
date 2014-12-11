@@ -1,4 +1,4 @@
-<div tal:condition="view/data/omit_border"
+<div tal:condition="python:view.data.omit_border and view.data.text"
      tal:attributes="class view/getPortletClass">
      <div class="portletItem" tal:content="structure view/transformed|view/data/text" />	
 </div>
