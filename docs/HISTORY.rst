@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.4 (unreleased)
+1.3.4 (2016-02-24)
 ------------------
 
 - Changed css rendering from "import" to "link" [pnicolli]
