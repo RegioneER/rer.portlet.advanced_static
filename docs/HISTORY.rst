@@ -4,7 +4,7 @@ Changelog
 1.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added target attribute to header and footer link [pnicolli]
 
 
 1.3.3 (2014-12-11)

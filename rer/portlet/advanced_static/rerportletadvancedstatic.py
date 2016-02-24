@@ -212,6 +212,12 @@ class Renderer(static.Renderer):
         else:
             return self.data.more_url or ""
 
+    def hasInternalLink(self):
+        if self.data.internal_url:
+            return True
+        else:
+            return False
+
 
 class AddForm(static.AddForm):
     """Portlet add form.
