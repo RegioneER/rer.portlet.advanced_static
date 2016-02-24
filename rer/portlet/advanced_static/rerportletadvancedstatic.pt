@@ -6,7 +6,8 @@
 	 
 <dl tal:condition="not:view/data/omit_border"
     tal:attributes="class view/getPortletClass"
-    tal:define="portlet_link view/getPortletLink"
+    tal:define="portlet_link view/getPortletLink;
+                link_target python:view.hasInternalLink() and '_self' or '_blank'"
     i18n:domain="rer.portlet.advanced_static">
 
     <dt class="portletHeader">
@@ -17,7 +18,7 @@
         </span>
         <span class="portletTopLeft"></span>
         <a class="tile" tal:condition="portlet_link"
-		   tal:attributes="href portlet_link">
+		   tal:attributes="href portlet_link;target link_target">
         	<span tal:content="view/data/header"></span>
         </a>
 		<span class="tile"
@@ -37,7 +38,7 @@
     <dd class="portletFooter" tal:condition="view/has_footer">
         <span class="portletBottomLeft"></span>
         <span tal:condition="portlet_link">
-           <a tal:attributes="href portlet_link"
+           <a tal:attributes="href portlet_link;target link_target"
               tal:content="view/data/footer"
               />
         </span>
