@@ -4,6 +4,7 @@ Changelog
 1.3.4 (unreleased)
 ------------------
 
+- Changed css rendering from "import" to "link" [pnicolli]
 - Added target attribute to header and footer link [pnicolli]
 
 
