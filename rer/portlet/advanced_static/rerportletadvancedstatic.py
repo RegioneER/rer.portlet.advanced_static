@@ -45,10 +45,6 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
                                     required=False,
                                     description=_(u"CSS class to add at the portlet"))
 
-    portlet_class = schema.TextLine(title=_(u"Portlet class"),
-                                    required=False,
-                                    description=_(u"CSS class to add at the portlet"))
-
     css_style = schema.Choice(title=_(u"Portlet style"),
                               description=_(u"Choose a CSS style for the portlet"),
                               required=False,
