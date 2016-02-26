@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.5 (unreleased)
+1.4.0 (unreleased)
 ------------------
 
 - Added option to open header and footer links in a new window [pnicolli]
