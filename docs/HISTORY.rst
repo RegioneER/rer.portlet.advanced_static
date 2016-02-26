@@ -4,8 +4,8 @@ Changelog
 1.3.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Added option to open header and footer links in a new window [pnicolli]
+- Added a title attribute to header and footer links for accessibility purposes [pnicolli]
 
 1.3.4 (2016-02-24)
 ------------------

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-14 08:17+0000\n"
+"POT-Creation-Date: 2016-02-25 09:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.net>\n"
+"Last-Translator: Piero Nicolli <piero.nicolli@redturtle.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -14,19 +14,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:29
+#: ./configure.zcml:28
+msgid "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+msgstr "Portlet che estende le funzionalità della portlet di testo statico di Plone, aggiungendo diversi campi, tra cui stili CSS personalizzabili nelle site_properties"
+
+#: ./rerportletadvancedstatic.py:38
 msgid "Background image"
 msgstr "Immagine di background"
 
-#: ./rerportletadvancedstatic.py:35
+#: ./rerportletadvancedstatic.py:44
 msgid "Background image height"
 msgstr "Altezza immagine di background"
 
-#: ./rerportletadvancedstatic.py:46
+#: ./rerportletadvancedstatic.py:55
 msgid "CSS class to add at the portlet"
 msgstr "Classe CSS da aggiungere alla portlet"
 
-#: ./rerportletadvancedstatic.py:53
+#: ./rerportletadvancedstatic.py:58
 msgid "Choose a CSS style for the portlet"
 msgstr "Seleziona uno stile CSS per la portlet"
 
@@ -34,23 +38,31 @@ msgstr "Seleziona uno stile CSS per la portlet"
 msgid "Dropdown select"
 msgstr "Voci del menu"
 
-#: ./rerportletadvancedstatic.py:30
+#: ./rerportletadvancedstatic.py:39
 msgid "Insert an image that will be shown as background of the header"
 msgstr "Inserisci un'immagine che sarà visualizzata come background della testata della portlet"
 
-#: ./rerportletadvancedstatic.py:40
+#: ./rerportletadvancedstatic.py:49
 msgid "Insert an internal link. This field override external link field"
 msgstr "Inserisci un link interno. Questo campo ha priorità sul link esterno"
 
-#: ./rerportletadvancedstatic.py:39
+#: ./rerportletadvancedstatic.py:48
 msgid "Internal link"
 msgstr "Link interno"
 
-#: ./rerportletadvancedstatic.py:44
+#: ./rerportletadvancedstatic.py:26
+msgid "Open links in a new window"
+msgstr "Apri i link in una nuova finestra"
+
+#: ./rerportletadvancedstatic.py:224
+msgid "Opens in a new window"
+msgstr "Si apre in una nuova finestra"
+
+#: ./rerportletadvancedstatic.py:53
 msgid "Portlet class"
 msgstr "Classe portlet"
 
-#: ./rerportletadvancedstatic.py:52
+#: ./rerportletadvancedstatic.py:57
 msgid "Portlet style"
 msgstr "Stile portlet"
 
@@ -62,15 +74,23 @@ msgstr ""
 msgid "RER Advanced static portlet settings"
 msgstr "Settaggi RER Advanced static portlet"
 
-#: ./rerportletadvancedstatic.py:36
+#: ./configure.zcml:28
+msgid "RER: Portlet advanced static"
+msgstr ""
+
+#: ./configure.zcml:35
+msgid "RER: Portlet advanced static uninstall"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:45
 msgid "Specify image background's height (in pixels). If empty will be used image's height."
 msgstr "Inserisci l'altezza dell'immagine di background (in pixel). Se vuoto, verrà utlizzata l'altezza originale dell'immagine."
 
-#: ./rerportletadvancedstatic.py:25
+#: ./rerportletadvancedstatic.py:34
 msgid "Text"
 msgstr "Testo"
 
-#: ./rerportletadvancedstatic.py:26
+#: ./rerportletadvancedstatic.py:35
 msgid "The text to render"
 msgstr "Il testo da visualizzare"
 
@@ -82,8 +102,12 @@ msgstr "Questi valori sono usati per generare il menu a tendina della portlet ad
 msgid "This form is for managing RER Advanced static portlet classes available on portlet add/edit form."
 msgstr "Questa form serve per gestire le classi della RER Advanced static portlet."
 
+#: ./rerportletadvancedstatic.py:27
+msgid "Tick this box if you want to open the header and footer links in a new window"
+msgstr "Seleziona questa casella se vuoi che i collegamenti del titolo e del footer si aprano in una nuova finestra"
+
 #. Default: "Save"
-#: ./rerportletadvancedstatic.py:246
+#: ./rerportletadvancedstatic.py:259
 msgid "label_save"
 msgstr "Salva"
 
@@ -91,4 +115,3 @@ msgstr "Salva"
 #: ./rerportletadvancedstatic.py:16
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr "-- seleziona un valore --"
-

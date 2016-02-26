@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-14 08:17+0000\n"
+"POT-Creation-Date: 2016-02-25 09:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.portlet.advanced_static\n"
 
-#: ./rerportletadvancedstatic.py:29
+#: ./configure.zcml:28
+msgid "A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:38
 msgid "Background image"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:35
+#: ./rerportletadvancedstatic.py:44
 msgid "Background image height"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:46
+#: ./rerportletadvancedstatic.py:55
 msgid "CSS class to add at the portlet"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:53
+#: ./rerportletadvancedstatic.py:58
 msgid "Choose a CSS style for the portlet"
 msgstr ""
 
@@ -37,23 +41,31 @@ msgstr ""
 msgid "Dropdown select"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:30
+#: ./rerportletadvancedstatic.py:39
 msgid "Insert an image that will be shown as background of the header"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:40
+#: ./rerportletadvancedstatic.py:49
 msgid "Insert an internal link. This field override external link field"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:39
+#: ./rerportletadvancedstatic.py:48
 msgid "Internal link"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:44
+#: ./rerportletadvancedstatic.py:26
+msgid "Open links in a new window"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:224
+msgid "Opens in a new window"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:53
 msgid "Portlet class"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:52
+#: ./rerportletadvancedstatic.py:57
 msgid "Portlet style"
 msgstr ""
 
@@ -65,15 +77,23 @@ msgstr ""
 msgid "RER Advanced static portlet settings"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:36
+#: ./configure.zcml:28
+msgid "RER: Portlet advanced static"
+msgstr ""
+
+#: ./configure.zcml:35
+msgid "RER: Portlet advanced static uninstall"
+msgstr ""
+
+#: ./rerportletadvancedstatic.py:45
 msgid "Specify image background's height (in pixels). If empty will be used image's height."
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:25
+#: ./rerportletadvancedstatic.py:34
 msgid "Text"
 msgstr ""
 
-#: ./rerportletadvancedstatic.py:26
+#: ./rerportletadvancedstatic.py:35
 msgid "The text to render"
 msgstr ""
 
@@ -85,8 +105,12 @@ msgstr ""
 msgid "This form is for managing RER Advanced static portlet classes available on portlet add/edit form."
 msgstr ""
 
+#: ./rerportletadvancedstatic.py:27
+msgid "Tick this box if you want to open the header and footer links in a new window"
+msgstr ""
+
 #. Default: "Save"
-#: ./rerportletadvancedstatic.py:246
+#: ./rerportletadvancedstatic.py:259
 msgid "label_save"
 msgstr ""
 
@@ -94,4 +118,3 @@ msgstr ""
 #: ./rerportletadvancedstatic.py:16
 msgid "vocabulary-missing-single-value-for-edit"
 msgstr ""
-

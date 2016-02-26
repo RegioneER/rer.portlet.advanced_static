@@ -21,6 +21,15 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
     """
     A custom static text portlet
     """
+
+    target_attr = schema.Bool(
+        title=_(u"Open links in a new window"),
+        description=_(u"Tick this box if you want to open the header "
+            "and footer links in a new window"),
+        required=False,
+        default=False
+        )
+
     text = schema.Text(
         title=_(u"Text"),
         description=_(u"The text to render"),
@@ -60,6 +69,7 @@ class Assignment(static.Assignment):
 
     implements(IRERPortletAdvancedStatic)
 
+    target_attr = False
     image_ref = ''
     image_ref_height = None
     assignment_context_path = None
@@ -68,13 +78,14 @@ class Assignment(static.Assignment):
     css_style = ''
 
     def __init__(self, header=u"", text=u"", omit_border=False, footer=u"",
-                 more_url='', hide=False, assignment_context_path=None,
+                 more_url='', target_attr=False, hide=False, assignment_context_path=None,
                  image_ref='', image_ref_height=None, internal_url='', portlet_class='', css_style=''):
         self.header = header
         self.text = text
         self.omit_border = omit_border
         self.footer = footer
         self.more_url = more_url
+        self.target_attr = target_attr
         self.image_ref = image_ref
         self.image_ref_height = image_ref_height
         self.assignment_context_path = assignment_context_path
@@ -208,11 +219,11 @@ class Renderer(static.Renderer):
         else:
             return self.data.more_url or ""
 
-    def hasInternalLink(self):
-        if self.data.internal_url:
-            return True
+    def getLinkTitle(self):
+        if self.data.target_attr:
+            return _(u'Opens in a new window')
         else:
-            return False
+            return ''
 
 
 class AddForm(static.AddForm):
