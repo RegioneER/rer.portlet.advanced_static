@@ -4,7 +4,7 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added compatibility with dexterity images used as background images [pnicolli]
 
 
 1.4.0 (2016-02-26)
