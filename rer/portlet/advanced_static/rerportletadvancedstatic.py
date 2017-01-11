@@ -144,6 +144,10 @@ class Renderer(static.Renderer):
         image = self.getImageObject(self.data.image_ref)
         if not image:
             return ""
+        # compatibility with dexterity images
+        blobimage = getattr(image, 'image', None)
+        if blobimage:
+            return blobimage.getImageSize()[1]
         return str(image.getImage().height)
 
     def getImageStyle(self):
