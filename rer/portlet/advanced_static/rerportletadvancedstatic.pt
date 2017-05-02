@@ -1,55 +1,44 @@
 <div tal:condition="python:view.data.omit_border and view.data.text"
-     tal:attributes="class view/getPortletClass">
-     <div class="portletItem" tal:content="structure view/transformed|view/data/text" />	
-</div>
-     
-	 
-<dl tal:condition="not:view/data/omit_border"
-    tal:attributes="class view/getPortletClass"
-    tal:define="portlet_link view/getPortletLink;
-                link_target python:view.data.target_attr and '_blank' or '_self'"
-    i18n:domain="rer.portlet.advanced_static">
+     tal:attributes="class view/getPortletClass"
+     tal:content="structure view/transformed" />
 
-    <dt class="portletHeader">
-		<span class="headerImg"
-		     tal:define="img_style view/getImageStyle"
-		     tal:condition="img_style"
-             tal:attributes="style img_style">
-        </span>
-        <span class="portletTopLeft"></span>
-        <a class="tile" tal:condition="portlet_link"
-    		   tal:attributes="href portlet_link;
+<section tal:condition="not:view/data/omit_border"
+         tal:attributes="class view/getPortletClass"
+         tal:define="portlet_link view/getPortletLink;
+                     link_target python:view.data.target_attr and '_blank' or '_self'"
+         i18n:domain="rer.portlet.advanced_static">
+    <header class="portletHeader"
+            tal:define="header view/data/header"
+            tal:attributes="class python:header and 'portletHeader' or 'portletHeader titleless'">
+      <span class="headerImg"
+            tal:define="img_style view/getImageStyle"
+            tal:condition="img_style"
+            tal:attributes="style img_style">
+      </span>
+
+      <h4 class="portlet-header" tal:condition="view/data/header">
+        <a class="tile" tal:omit-tag="not:portlet_link"
+           tal:attributes="href portlet_link;
                            target link_target;
                            title view/getLinkTitle"
-           i18n:attributes="title">
-        	<span tal:content="view/data/header"></span>
-        </a>
-		<span class="tile"
-		      tal:condition="not:portlet_link"
-		      tal:content="view/data/header"></span>
-        <span class="portletTopRight"></span>
-    </dt>
+           i18n:attributes="title"
+           tal:content="view/data/header" />
+      </h4>
 
-    <dd class="portletItem" tal:condition="view/data/text">
-        <div tal:replace="structure view/transformed|view/data/text" />
-		<tal:corners condition="not:view/has_footer">
-            <span class="portletBottomLeft"></span>
-            <span class="portletBottomRight"></span>
-        </tal:corners>
-    </dd>
+    </header>
 
-    <dd class="portletFooter" tal:condition="view/has_footer">
-        <span class="portletBottomLeft"></span>
-        <span tal:condition="portlet_link">
-           <a tal:attributes="href portlet_link;
-                              target link_target;
-                              title view/getLinkTitle"
-              tal:content="view/data/footer"
-              i18n:attributes="title"
-              />
-        </span>
-        <span class="portletBottomRight"></span>
-    </dd>
-    
+    <section class="portletContent">
+        <div tal:replace="structure view/transformed" />
+    </section>
 
-</dl>
+    <footer class="portletFooter" tal:condition="view/has_footer">
+      <span tal:condition="portlet_link">
+         <a tal:attributes="href portlet_link;
+                            target link_target;
+                            title view/getLinkTitle"
+            tal:content="view/data/footer"
+            i18n:attributes="title"
+            />
+      </span>
+    </footer>
+</section>

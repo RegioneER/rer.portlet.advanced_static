@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.4.2.dev0'
+version = '2.0.0.dev0'
 
 setup(name='rer.portlet.advanced_static',
       version=version,
@@ -26,7 +26,8 @@ setup(name='rer.portlet.advanced_static',
       install_requires=[
           'setuptools',
           'Products.CMFPlone',
-          'plone.portlet.static>=1.2.1'
+          'plone.portlet.static>=1.2.1',
+          'collective.tiles.advancedstatic',
       ],
       entry_points="""
       # -*- Entry points: -*-

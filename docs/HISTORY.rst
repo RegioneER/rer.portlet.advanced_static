@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.4.2 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop Plone < 5 compatibility. For Plone < 5, use 1.x branch.
+  [cekk]
 
 
 1.4.1 (2017-01-11)

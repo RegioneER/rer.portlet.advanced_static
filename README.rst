@@ -2,6 +2,13 @@ Introduction
 ============
 A portlet that extends the base Static Portlet of Plone and add some new fields and features.
 
+Dependencies
+============
+
+1.x branch: Plone 3 and 4
+2.x (master): Plone 5
+
+
 Set a background image
 ----------------------
 
@@ -21,7 +28,8 @@ You can assign some custom css classes to the portlet.
 Preset Style Classes
 --------------------
 In the portlet configuration there is a field that allows to choose a style class from a preset list.
-You can edit the list of styles in "@@advancedstaticportlet-controlpanel" configlet in the controlpanel.
+
+You can edit the list of styles in resource registry (@@portal_registry) entry: collective.tiles.advancedstatic.css_styles.
 
 Credits
 =======
@@ -39,4 +47,3 @@ This product was developed by RedTurtle Technology team.
 .. image:: http://www.redturtle.net/redturtle_banner.png
    :alt: RedTurtle Technology Site
    :target: http://www.redturtle.net/
-

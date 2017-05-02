@@ -9,16 +9,14 @@
 
     <five:registerPackage package="." initialize=".initialize" />
     <i18n:registerTranslations directory="locales" />
-	
+
 	<include package="Products.CMFCore" file="permissions.zcml"
              xmlns:zcml="http://namespaces.zope.org/zcml"
              zcml:condition="have plone-41" />
-	
-	  <include package=".browser" />
+
     <include package ="plone.app.portlets" />
-    <include package=".utility" />
     <include file="upgrades.zcml" />
-	
+
     <genericsetup:registerProfile
        name="default"
        title="RER: Portlet advanced static"
@@ -44,7 +42,7 @@
          addview=".rerportletadvancedstatic.AddForm"
          editview=".rerportletadvancedstatic.EditForm"
          />
-    
+
 	<genericsetup:importStep
       name="rer.portlet.advanced_static"
       title="RER Portlet advanced static configuration"
