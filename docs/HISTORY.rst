@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.0 (unreleased)
+2.0.0 (2017-09-13)
 ------------------
 
 - Drop Plone < 5 compatibility. For Plone < 5, use 1.x branch.
