@@ -154,6 +154,8 @@ class Renderer(static.Renderer):
         set background image, if present
         """
         img_url = self.getImgUrl()
+        if not img_url:
+            return None
         if self.data.image_ref_height:
             height = self.data.image_ref_height
         else:

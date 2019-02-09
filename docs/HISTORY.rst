@@ -4,7 +4,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Avoid empty background image, that cause html page reload as image
+  [mamico]
 
 
 2.0.0 (2017-09-13)
