@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2019-02-15)
 ------------------
 
 - Avoid empty background image, that cause html page reload as image
