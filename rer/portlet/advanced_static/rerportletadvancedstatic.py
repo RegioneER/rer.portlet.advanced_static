@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from Products.ATContentTypes.interface import IATImage
 from plone.app.vocabularies.catalog import CatalogSource
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.portlet.static import static
 from rer.portlet.advanced_static import \
     RERPortletAdvancedStaticMessageFactory as _
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 from zope.component import getMultiAdapter
 import sys
 from plone.memoize import view
@@ -56,14 +55,13 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
         vocabulary='collective.tiles.advancedstatic.CSSVocabulary',)
 
 
+@implementer(IRERPortletAdvancedStatic)
 class Assignment(static.Assignment):
     """Portlet assignment.
 
     This is what is actually managed through the portlets UI and associated
     with columns.
     """
-
-    implements(IRERPortletAdvancedStatic)
 
     target_attr = False
     image_ref = ''

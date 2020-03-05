@@ -48,7 +48,7 @@ class TestPortlet(TestCase):
         addview.createAndAdd(data={})
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(mapping.values()[0],
+        self.failUnless(isinstance(list(mapping.values())[0],
                                    rerportletadvancedstatic.Assignment))
 
     def test_invoke_edit_view(self):
