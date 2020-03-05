@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.2 (unreleased)
+2.0.2 (2020-03-05)
 ------------------
 
 - Run modernize, switched implements->implementer, remove AT reference.
