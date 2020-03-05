@@ -4,8 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Run modernize, switched implements->implementer, remove AT reference.
+  [pnicolli]
 
 2.0.1 (2019-02-15)
 ------------------
