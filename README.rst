@@ -29,7 +29,7 @@ Preset Style Classes
 --------------------
 In the portlet configuration there is a field that allows to choose a style class from a preset list.
 
-You can edit the list of styles in resource registry (@@portal_registry) entry: collective.tiles.advancedstatic.css_styles.
+You can edit the list of styles in resource registry (@@portal_registry) entry: rer.portlet.advanced_static.css_styles.
 
 Credits
 =======

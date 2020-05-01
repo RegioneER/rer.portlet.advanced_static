@@ -11,5 +11,13 @@
         destination="1300"
         handler=".upgrades.to_1_3_0"
         profile="rer.portlet.advanced_static:default" />
+
+  <gs:upgradeStep
+        title="Upgrade rer.portlet.advanced_static 1.3.0"
+        description="rer.portlet.advanced_static upgrade step"
+        source="*"
+        destination="3000"
+        handler=".upgrades.migrate_to_3000"
+        profile="rer.portlet.advanced_static:default" />
        
 </configure>

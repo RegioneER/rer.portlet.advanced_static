@@ -5,25 +5,37 @@ from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignment
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletRenderer
-
 from plone.app.portlets.storage import PortletAssignmentMapping
-
 from rer.portlet.advanced_static import rerportletadvancedstatic
+from rer.portlet.advanced_static.tests.base import (
+    RER_PORTLET_ADVANDED_STATIC_INTEGRATION_TESTING,
+)
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.registry.interfaces import IRegistry
+from rer.portlet.advanced_static import registry_key
+import unittest
 
-from rer.portlet.advanced_static.tests.base import TestCase
 
+class PortletIntegrationTest(unittest.TestCase):
 
-class TestPortlet(TestCase):
+    layer = RER_PORTLET_ADVANDED_STATIC_INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.setRoles(('Manager', ))
+    def setUp(self):
+        self.portal = self.layer["portal"]
+        self.app = self.layer["app"]
+        self.request = self.app.REQUEST
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
 
     def test_portlet_type_registered(self):
         portlet = getUtility(
             IPortletType,
-            name='rer.portlet.advanced_static.RERPortletAdvancedStatic')
-        self.assertEquals(portlet.addview,
-                          'rer.portlet.advanced_static.RERPortletAdvancedStatic')
+            name="rer.portlet.advanced_static.RERPortletAdvancedStatic",
+        )
+        self.assertEquals(
+            portlet.addview,
+            "rer.portlet.advanced_static.RERPortletAdvancedStatic",
+        )
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
@@ -34,12 +46,14 @@ class TestPortlet(TestCase):
     def test_invoke_add_view(self):
         portlet = getUtility(
             IPortletType,
-            name='rer.portlet.advanced_static.RERPortletAdvancedStatic')
+            name="rer.portlet.advanced_static.RERPortletAdvancedStatic",
+        )
         mapping = self.portal.restrictedTraverse(
-            '++contextportlets++plone.leftcolumn')
+            "++contextportlets++plone.leftcolumn"
+        )
         for m in mapping.keys():
             del mapping[m]
-        addview = mapping.restrictedTraverse('+/' + portlet.addview)
+        addview = mapping.restrictedTraverse("+/" + portlet.addview)
 
         # TODO: Pass a dictionary containing dummy form inputs from the add
         # form.
@@ -48,65 +62,90 @@ class TestPortlet(TestCase):
         addview.createAndAdd(data={})
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(list(mapping.values())[0],
-                                   rerportletadvancedstatic.Assignment))
+        self.failUnless(
+            isinstance(
+                list(mapping.values())[0], rerportletadvancedstatic.Assignment
+            )
+        )
 
     def test_invoke_edit_view(self):
         # NOTE: This test can be removed if the portlet has no edit form
         mapping = PortletAssignmentMapping()
-        request = self.folder.REQUEST
+        request = self.portal.REQUEST
 
-        mapping['foo'] = rerportletadvancedstatic.Assignment()
-        editview = getMultiAdapter((mapping['foo'], request), name='edit')
-        self.failUnless(isinstance(editview, rerportletadvancedstatic.EditForm))
+        mapping["foo"] = rerportletadvancedstatic.Assignment()
+        editview = getMultiAdapter((mapping["foo"], request), name="edit")
+        self.failUnless(
+            isinstance(editview, rerportletadvancedstatic.EditForm)
+        )
 
     def test_obtain_renderer(self):
-        context = self.folder
-        request = self.folder.REQUEST
-        view = self.folder.restrictedTraverse('@@plone')
-        manager = getUtility(IPortletManager, name='plone.rightcolumn',
-                             context=self.portal)
+        context = self.portal
+        request = self.portal.REQUEST
+        view = self.portal.restrictedTraverse("@@plone")
+        manager = getUtility(
+            IPortletManager, name="plone.rightcolumn", context=self.portal
+        )
 
         # TODO: Pass any keyword arguments to the Assignment constructor
         assignment = rerportletadvancedstatic.Assignment()
 
         renderer = getMultiAdapter(
-            (context, request, view, manager, assignment), IPortletRenderer)
-        self.failUnless(isinstance(renderer, rerportletadvancedstatic.Renderer))
+            (context, request, view, manager, assignment), IPortletRenderer
+        )
+        self.failUnless(
+            isinstance(renderer, rerportletadvancedstatic.Renderer)
+        )
+
+    def test_setup(self):
+        registry = getUtility(IRegistry)
+        self.assertTrue(registry_key in registry)
 
 
-class TestRenderer(TestCase):
+class TestRenderer(unittest.TestCase):
 
-    def afterSetUp(self):
-        self.setRoles(('Manager', ))
+    layer = RER_PORTLET_ADVANDED_STATIC_INTEGRATION_TESTING
 
-    def renderer(self, context=None, request=None, view=None, manager=None,
-                 assignment=None):
-        context = context or self.folder
-        request = request or self.folder.REQUEST
-        view = view or self.folder.restrictedTraverse('@@plone')
+    def setUp(self):
+        self.portal = self.layer["portal"]
+        self.app = self.layer["app"]
+        self.request = self.app.REQUEST
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
+
+    def renderer(
+        self,
+        context=None,
+        request=None,
+        view=None,
+        manager=None,
+        assignment=None,
+    ):
+        context = context or self.portal
+        request = request or self.portal.REQUEST
+        view = view or self.portal.restrictedTraverse("@@plone")
         manager = manager or getUtility(
-            IPortletManager, name='plone.rightcolumn', context=self.portal)
+            IPortletManager, name="plone.rightcolumn", context=self.portal
+        )
 
         # TODO: Pass any default keyword arguments to the Assignment
         # constructor.
         assignment = assignment or rerportletadvancedstatic.Assignment()
-        return getMultiAdapter((context, request, view, manager, assignment),
-                               IPortletRenderer)
+        return getMultiAdapter(
+            (context, request, view, manager, assignment), IPortletRenderer
+        )
 
     def test_render(self):
-        # TODO: Pass any keyword arguments to the Assignment constructor.
-        r = self.renderer(context=self.portal,
-                          assignment=rerportletadvancedstatic.Assignment())
-        r = r.__of__(self.folder)
-        r.update()
-        #output = r.render()
-        # TODO: Test output
+        context = self.portal
+        request = self.portal.REQUEST
+        view = self.portal.restrictedTraverse("@@plone")
+        manager = getUtility(
+            IPortletManager, name="plone.leftcolumn", context=self.portal
+        )
+        assignment = rerportletadvancedstatic.Assignment()
 
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestPortlet))
-    suite.addTest(makeSuite(TestRenderer))
-    return suite
+        renderer = getMultiAdapter(
+            (context, request, view, manager, assignment), IPortletRenderer
+        )
+        self.assertTrue(
+            isinstance(renderer, rerportletadvancedstatic.Renderer)
+        )

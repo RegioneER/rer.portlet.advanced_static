@@ -49,4 +49,10 @@
       description="Configures advanced static properties"
       handler="rer.portlet.advanced_static.exportimport.import_various"
       />
+
+  <utility
+     component=".vocabulary.CSSVocabulary"
+     name="rer.portlet.advanced_static.CSSVocabulary"
+     />
+
 </configure>
