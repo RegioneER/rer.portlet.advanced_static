@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.0 (unreleased)
+3.0.0 (2020-05-06)
 ------------------
 
 - [chg] introduce breaking change removing dependency from collective.tiles.advancedstatic;
