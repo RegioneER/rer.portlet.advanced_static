@@ -2,3 +2,4 @@
 *.mo
 *.pyc
 *.swp
+develop-eggs/

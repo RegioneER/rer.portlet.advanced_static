@@ -1,10 +1,12 @@
 Changelog
 =========
 
-2.0.3 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- [chg] introduce breaking change removing dependency from collective.tiles.advancedstatic;
+  also allow to use different registry field to store css syle
+  [lucabel]
 
 
 2.0.2 (2020-03-05)

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>2000</version>
+  <version>3000</version>
   <dependencies>
-    <dependency>profile-collective.tiles.advancedstatic:default</dependency>
   </dependencies>
 </metadata>

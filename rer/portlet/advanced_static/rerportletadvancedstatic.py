@@ -2,11 +2,11 @@
 from plone.app.vocabularies.catalog import CatalogSource
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.portlet.static import static
-from rer.portlet.advanced_static import \
-    RERPortletAdvancedStaticMessageFactory as _
+from rer.portlet.advanced_static import (
+    RERPortletAdvancedStaticMessageFactory as _,
+)
 from zope import schema
 from zope.interface import implementer
-from zope.component import getMultiAdapter
 import sys
 from plone.memoize import view
 from plone import api
@@ -21,38 +21,51 @@ class IRERPortletAdvancedStatic(static.IStaticPortlet):
         title=_(u"Open links in a new window"),
         description=_(
             u"Tick this box if you want to open the header "
-            "and footer links in a new window"),
+            "and footer links in a new window"
+        ),
         required=False,
-        default=False
-        )
+        default=False,
+    )
 
     image_ref = schema.Choice(
         title=_(u"Background image"),
-        description=_(u"Insert an image that will be shown as background of the header"),
+        description=_(
+            u"Insert an image that will be shown as background of the header"
+        ),
         required=False,
-        source=CatalogSource(portal_type='Image'))
+        source=CatalogSource(portal_type="Image"),
+    )
 
     image_ref_height = schema.Int(
         title=_(u"Background image height"),
-        description=_(u"Specify image background's height (in pixels). If empty will be used image's height."),
-        required=False)
+        description=_(
+            u"Specify image background's height (in pixels). If empty will"
+            " be used image's height."
+        ),
+        required=False,
+    )
 
     internal_url = schema.Choice(
         title=_(u"Internal link"),
-        description=_(u"Insert an internal link. This field override external link field"),
+        description=_(
+            u"Insert an internal link. This field override external link field"
+        ),
         required=False,
-        source=CatalogSource())
+        source=CatalogSource(),
+    )
 
     portlet_class = schema.TextLine(
         title=_(u"Portlet class"),
         required=False,
-        description=_(u"CSS class to add at the portlet"))
+        description=_(u"CSS class to add at the portlet"),
+    )
 
     css_style = schema.Choice(
         title=_(u"Portlet style"),
         description=_(u"Choose a CSS style for the portlet"),
         required=False,
-        vocabulary='collective.tiles.advancedstatic.CSSVocabulary',)
+        vocabulary="rer.portlet.advanced_static.CSSVocabulary",
+    )
 
 
 @implementer(IRERPortletAdvancedStatic)
@@ -64,16 +77,29 @@ class Assignment(static.Assignment):
     """
 
     target_attr = False
-    image_ref = ''
+    image_ref = ""
     image_ref_height = None
     assignment_context_path = None
-    internal_url = ''
-    portlet_class = ''
-    css_style = ''
+    internal_url = ""
+    portlet_class = ""
+    css_style = ""
 
-    def __init__(self, header=u"", text=u"", omit_border=False, footer=u"",
-                 more_url='', target_attr=False, hide=False, assignment_context_path=None,
-                 image_ref='', image_ref_height=None, internal_url='', portlet_class='', css_style=''):
+    def __init__(
+        self,
+        header=u"",
+        text=u"",
+        omit_border=False,
+        footer=u"",
+        more_url="",
+        target_attr=False,
+        hide=False,
+        assignment_context_path=None,
+        image_ref="",
+        image_ref_height=None,
+        internal_url="",
+        portlet_class="",
+        css_style="",
+    ):
         self.header = header
         self.text = text
         self.omit_border = omit_border
@@ -104,7 +130,7 @@ class Renderer(static.Renderer):
     """Portlet renderer.
     """
 
-    render = ViewPageTemplateFile('rerportletadvancedstatic.pt')
+    render = ViewPageTemplateFile("rerportletadvancedstatic.pt")
 
     def getPortletClass(self):
         classes = "portlet rerPortletAdvancedStatic"
@@ -142,7 +168,7 @@ class Renderer(static.Renderer):
         if not image:
             return ""
         # compatibility with dexterity images
-        blobimage = getattr(image, 'image', None)
+        blobimage = getattr(image, "image", None)
         if blobimage:
             return blobimage.getImageSize()[1]
         return str(image.getImage().height)
@@ -175,9 +201,9 @@ class Renderer(static.Renderer):
 
     def getLinkTitle(self):
         if self.data.target_attr:
-            return _(u'Opens in a new window')
+            return _(u"Opens in a new window")
         else:
-            return ''
+            return ""
 
 
 class AddForm(static.AddForm):
@@ -187,13 +213,16 @@ class AddForm(static.AddForm):
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
+
     schema = IRERPortletAdvancedStatic
 
     def create(self, data):
-        assignment_context_path = \
-                    '/'.join(self.context.__parent__.getPhysicalPath())
-        return Assignment(assignment_context_path=assignment_context_path,
-                          **data)
+        assignment_context_path = "/".join(
+            self.context.__parent__.getPhysicalPath()
+        )
+        return Assignment(
+            assignment_context_path=assignment_context_path, **data
+        )
 
 
 class EditForm(static.EditForm):
@@ -202,4 +231,5 @@ class EditForm(static.EditForm):
     This is registered with configure.zcml. The form_fields variable tells
     zope.formlib which fields to display.
     """
+
     schema = IRERPortletAdvancedStatic
