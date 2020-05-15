@@ -1,0 +1,109 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - application-development
+  - content-management
+  - document-management
+dependsOn:
+  open:
+    - name: Plone
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '3'
+logo: docs/rer-logo.png
+description:
+  it:
+    features:
+      - Portlet statica
+      - Immagine di sfondo
+      - Stili personalizzati
+      - Classi CSS aggiuntiive
+    genericName: Plone addon
+    longDescription: >
+      Una portlet che estende la Portlet statica di base di Plone e aggiunge
+      alcuni nuovi campi e funzionalità.
+
+
+      ### Immagine di sfondo
+
+
+      Nella configurazione della portlet ci sono due campi che permettono di
+      aggiungere un'immagine di  sfondo nella testata della portlet. L'immagine
+      verrà impostata come "background-image" nello stile della testata della
+      portlet.
+
+
+      Puoi anche impostare l'altezza o lasciare quella di default.
+
+
+      ### Campo per link interni
+
+
+      Esiste un nuovo campo che consente di impostare un collegamento interno da
+      mostrare nel collegamento "altro".  Se questo campo è impostato,
+      sovrascrive il collegamento esterno di base del portlet statico.
+
+
+      ### Campo per classe CSS aggiuntiva
+
+
+      Puoi assegnare delle classi CSS personaliizzate  alla portlet.
+
+
+      ### Classi di stile preimpostate
+
+
+      Nella configurazione della portlet è presente un campo che consente di
+      scegliere una classe di stile da un elenco predefinito.
+
+
+      La lista è modificabile nel resource registry (@@portal\_registry) entry:
+      rer.portlet.advanced\_static.css\_styles.
+    shortDescription: >-
+      Una portlet che estende la portlet di testo statico di Plone e aggiunge
+      più funzionalità
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: GPL-2.0-only
+  mainCopyrightOwner: Regione Emilia-Romagna
+  repoOwner: Regione Emilia-Romagna
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+maintenance:
+  contacts:
+    - affiliation: Regione Emilia-Romagna
+      email: webmaster@regione.emilia-romagna.it
+      name: Sara Turra
+  contractors:
+    - name: RedTurtle
+      until: '2020-08-31'
+      website: 'https://www.redturtle.it/'
+  type: contract
+name: rer.portlet.advanced_static
+platforms:
+  - web
+releaseDate: '2011-03-14'
+softwareType: addon
+softwareVersion: 3.0.0
+url: 'https://github.com/RegioneER/rer.portlet.advanced_static'
+usedBy:
+  - Regione Emilia-Romagna
