@@ -68,6 +68,8 @@ description:
       più funzionalità
 developmentStatus: stable
 it:
+  riuso:
+    codiceIPA: r_emiro
   conforme:
     gdpr: true
     lineeGuidaDesign: false
