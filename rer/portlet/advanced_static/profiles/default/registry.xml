@@ -10,4 +10,11 @@
         <element>example-element|Example element</element>
     </value>
   </record>
+  <records prefix="plone.bundles/rer.portlet.advanced_static" interface="Products.CMFPlone.interfaces.IBundleRegistry">
+    <value key="enabled">True</value>
+    <value key="jscompilation"></value>
+    <value key="csscompilation">++resource++advanced_static.css</value>
+    <value key="load_async">False</value>
+    <value key="load_defer">False</value>
+  </records>
 </registry>

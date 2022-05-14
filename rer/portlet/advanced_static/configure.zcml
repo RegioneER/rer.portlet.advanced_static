@@ -55,4 +55,10 @@
      name="rer.portlet.advanced_static.CSSVocabulary"
      />
 
+  <!-- Resource for stylesheet -->
+  <browser:resource
+      name="advanced_static.css"
+      file="advanced_static.css"
+      />
+
 </configure>
