@@ -14,7 +14,5 @@
     <value key="enabled">True</value>
     <value key="jscompilation"></value>
     <value key="csscompilation">++resource++advanced_static.css</value>
-    <value key="load_async">False</value>
-    <value key="load_defer">False</value>
   </records>
 </registry>
