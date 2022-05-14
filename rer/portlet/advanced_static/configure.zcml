@@ -21,14 +21,13 @@
        name="default"
        title="RER: Portlet advanced static"
        directory="profiles/default"
-       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in the configuration registry"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
     <genericsetup:registerProfile
        name="uninstall"
        title="RER: Portlet advanced static uninstall"
        directory="profiles/uninstall"
-       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
