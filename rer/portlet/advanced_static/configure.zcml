@@ -10,9 +10,7 @@
     <five:registerPackage package="." initialize=".initialize" />
     <i18n:registerTranslations directory="locales" />
 
-	<include package="Products.CMFCore" file="permissions.zcml"
-             xmlns:zcml="http://namespaces.zope.org/zcml"
-             zcml:condition="have plone-41" />
+	<include package="Products.CMFCore" file="permissions.zcml" />
 
     <include package ="plone.app.portlets" />
     <include file="upgrades.zcml" />
