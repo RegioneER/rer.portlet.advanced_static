@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="rer.portlet.advanced_static.css_styles" remove="true" />
+  <records prefix="plone.bundles/rer.portlet.advanced_static"
+    interface="Products.CMFPlone.interfaces.IBundleRegistry"
+    remove="true" />
+</registry>

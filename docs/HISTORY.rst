@@ -4,7 +4,10 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Restore our css, so the background image is shown.  [maurits]
+
+- Test with Plone 5.0, 5.1, 5.2 and 6.0.
+  Test on all Python versions supported by Plone.  [maurits]
 
 
 3.0.0 (2020-05-06)

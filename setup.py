@@ -11,9 +11,20 @@ setup(
     long_description=open("README.rst").read()
     + "\n"
     + open(os.path.join("docs", "HISTORY.rst")).read(),
-    # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
-    classifiers=["Framework :: Plone", "Programming Language :: Python"],
+    # Get more strings from http://pypi.org/classifiers/
+    classifiers=[
+        "Framework :: Plone",
+        "Framework :: Plone :: 5.0",
+        "Framework :: Plone :: 5.1",
+        "Framework :: Plone :: 5.2",
+        "Framework :: Plone :: 6.0",
+        "Programming Language :: Python",
+        "Programming Language :: Python: 2.7",
+        "Programming Language :: Python: 3.6",
+        "Programming Language :: Python: 3.7",
+        "Programming Language :: Python: 3.8",
+        "Programming Language :: Python: 3.9",
+    ],
     keywords="portlet static",
     author="RedTurtle Technology",
     author_email="sviluppoplone@redturtle.net",

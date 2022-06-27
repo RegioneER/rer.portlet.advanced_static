@@ -10,9 +10,7 @@
     <five:registerPackage package="." initialize=".initialize" />
     <i18n:registerTranslations directory="locales" />
 
-	<include package="Products.CMFCore" file="permissions.zcml"
-             xmlns:zcml="http://namespaces.zope.org/zcml"
-             zcml:condition="have plone-41" />
+	<include package="Products.CMFCore" file="permissions.zcml" />
 
     <include package ="plone.app.portlets" />
     <include file="upgrades.zcml" />
@@ -21,14 +19,13 @@
        name="default"
        title="RER: Portlet advanced static"
        directory="profiles/default"
-       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
+       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in the configuration registry"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
     <genericsetup:registerProfile
        name="uninstall"
        title="RER: Portlet advanced static uninstall"
        directory="profiles/uninstall"
-       description="A portlet that extend Plone static text portlet, and add more functionalities like some css styles customizables in site_properties"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
@@ -54,5 +51,11 @@
      component=".vocabulary.CSSVocabulary"
      name="rer.portlet.advanced_static.CSSVocabulary"
      />
+
+  <!-- Resource for stylesheet -->
+  <browser:resource
+      name="advanced_static.css"
+      file="advanced_static.css"
+      />
 
 </configure>
