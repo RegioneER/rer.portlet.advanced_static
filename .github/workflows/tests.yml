@@ -15,7 +15,7 @@ jobs:
         python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
     steps:
       - name: Install lxml compilation dependencies, needed for Plone 5.0
-        if: matrix.python-version == "2.7"
+        if: matrix.python-version == '2.7'
         run: |
             sudo apt-get update
             sudo apt-get install libxml2-dev libxslt1-dev
