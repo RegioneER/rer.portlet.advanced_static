@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.1 (unreleased)
+3.1.0 (2022-07-13)
 ------------------
 
 - Restore our css, so the background image is shown.  [maurits]
