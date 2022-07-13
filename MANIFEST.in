@@ -3,3 +3,11 @@ include *.txt
 recursive-include docs *
 recursive-include rer *
 global-exclude *pyc
+include *.yml
+include base.cfg
+include buildout.cfg
+include test-5.0.x.cfg
+include test-5.1.x.cfg
+include test-5.2.x.cfg
+include test-6.0.x.cfg
+include tox.ini
