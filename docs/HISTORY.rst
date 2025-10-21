@@ -4,7 +4,7 @@ Changelog
 3.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- plone 6.1 support. [mamico]
 
 
 3.1.0 (2022-07-13)

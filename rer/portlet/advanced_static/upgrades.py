@@ -13,10 +13,13 @@ def upgrade(upgrade_product, version):
 
     def wrap_func(fn):
         def wrap_func_args(context, *args):
-            p = getToolByName(context, "portal_quickinstaller").get(
-                upgrade_product
-            )
-            setattr(p, "installedversion", version)
+            try:
+                p = getToolByName(context, "portal_quickinstaller").get(
+                    upgrade_product
+                )
+                setattr(p, "installedversion", version)
+            except AttributeError:
+                logger.warning("portal_quickinstaller obsoleted")
             return fn(context, *args)
 
         return wrap_func_args
