@@ -11,3 +11,4 @@ include test-5.1.x.cfg
 include test-5.2.x.cfg
 include test-6.0.x.cfg
 include tox.ini
+include test-6.1.x.cfg
